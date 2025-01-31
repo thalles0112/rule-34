@@ -115,7 +115,12 @@ export default async function PostPage({params, searchParams}: PageProps){
               <main className="lg:px-24 sm:items-center max-sm:px-4 flex max-sm:flex-col md:flex-row sm:flex-col gap-y-8 page-config--header">
                 <section id="post-image" className="relative h-full sm:w-full lg:w-8/12 flex items-center justify-center gap-2">
                   <div className="lg:w-10/12 h-full flex items-center md:w-10/12" >
-                    <Image alt="" width={1920} height={1080} className="w-full h-full object-contain post-image-max-height" src={post.imageUrl || post.file_url}/>
+                  {
+                    post.file_url.includes('mp4')
+                    ?<video className="w-full h-full object-contain post-image-max-height" controls src={post.file_url} />
+                    :<Image alt="" width={1920} height={1080} className="w-full h-full object-contain post-image-max-height" src={post.imageUrl || post.file_url}/>
+                  }
+                    
                   </div>
                   
                 </section>

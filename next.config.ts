@@ -14,6 +14,14 @@ const nextConfig: NextConfig = {
                 pathname: '/**',
                 search: '',
                         
+            },
+            {
+                protocol: 'https',
+                hostname: 'api-cdn-mp4.rule34.xxx',
+                port: '',
+                pathname: '/**',
+                search: '',
+                        
             }
         ]
     }
