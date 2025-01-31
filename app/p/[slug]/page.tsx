@@ -29,7 +29,8 @@ export async function generateMetadata(
   return {
     title: post.data[0].tags,
     openGraph: {
-      images: ['/some-specific-page-image.jpg',],
+      images: [post.data.file_url,],
+      
     },
   }
 }
