@@ -1,4 +1,5 @@
 import { post } from "@/app/types";
+import Image from "next/image";
 import Link from "next/link";
 import { forwardRef } from "react";
 import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPersonOutline } from 'react-icons/io5'
@@ -20,14 +21,14 @@ const Post = forwardRef(({post}:{post:post}, ref) =>{
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full overflow-hidden">
-                      {
-                        post.authorpicture
-                        ?<img src={post.authorpicture}/>
-                        :<IoPersonOutline size={24}/>
-                      }
-                      
-                    </div>
+                     <div className="w-8 h-8 rounded-full mb-2 flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
+                        {
+                          post.authorpicture
+                          ?<Image width={40} height={40} alt={post.author} src={post.authorpicture}/>
+                          :<IoPersonOutline size={20}/>
+                        }
+                        
+                      </div>
                     <div>
                       <label className="post-author font-semibold text-white">{post.author || 'Rule 34 Artist'}</label>
                     </div>

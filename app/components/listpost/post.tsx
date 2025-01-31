@@ -19,7 +19,7 @@ export default function Post({post}:{post:post}){
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
+                    <div className="w-8 h-8 rounded-full mb-2 flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
                       {
                         post.authorpicture
                         ?<Image width={40} height={40} alt={post.author} src={post.authorpicture}/>
