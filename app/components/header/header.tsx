@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
@@ -38,14 +39,14 @@ export default function Header(){
     return(
         <header className="w-full h-16 z-10 bg-transparent lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between">
             <Link href={'/'}>
-                <div>logo</div>
+                <Image src={'/img/NSFWHUB.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo"/>
             </Link>
             
 
             
             <form onSubmit={(e)=>handleSearch(e)} id='desktop-search' className="border h-10 rounded-md flex overflow-hidden max-sm:hidden">
                 <input defaultValue={searchParam} onChange={e=>{setSearchParam(e.target.value)}} className="outline-none border-none px-2 text-sm text-gray-600" placeholder="Search"/>
-                <button className="flex justify-center items-center border-l px-3 active:opacity-40">
+                <button name="search" className="flex justify-center items-center border-l px-3 active:opacity-40">
                     <IoSearchOutline/>
                 </button>
             </form>
@@ -56,7 +57,7 @@ export default function Header(){
                 <form onSubmit={(e)=>handleMobileSearch(e)} id='mobile-search' className={`${mobileSearchOpen?'max-sm:border':''} w-8/12 ml-auto h-10 rounded-md flex overflow-hidden`}>
                     <input value={searchParam} onChange={e=>{setSearchParam(e.target.value)}} className={`outline-none border-none px-2 ${mobileSearchOpen?'max-sm:w-full':'w-0 hidden'} sm:hidden text-sm text-gray-600`} placeholder="Search"/>
                     
-                    <button onClick={(e)=>handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen?'border rounded-md':'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
+                    <button name="search" onClick={(e)=>handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen?'border rounded-md':'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
                         <IoSearchOutline  size={18}/>
                     </button>    
                 </form>

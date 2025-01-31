@@ -5,16 +5,17 @@ import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPers
 
 const Post = forwardRef(({post}:{post:post}, ref) =>{
     return(
-      <Link ref={ref as any} href={post.url || `/p/${post.id}`}>
+
         <li className="post-item rounded-md overflow-hidden relative max-sm:w-full">
+                <Link ref={ref as any} href={post.url || `/p/${post.id}`}>
             <article className="w-full h-full">
               <figure className="h-full w-full">
                 <img
                   className="post-image"
                   src={post.previewImageUrl || post.preview_url}
-                  alt={post.title}
-                  width="600"
-                  height="400"
+                  alt={post.title || post.tags}
+                  width="1000"
+                  height="1000"
                   loading="lazy"
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
@@ -59,8 +60,9 @@ const Post = forwardRef(({post}:{post:post}, ref) =>{
                 </figcaption>
               </figure>
             </article>
+            </Link>
           </li>
-          </Link>
+          
     )
 })
 

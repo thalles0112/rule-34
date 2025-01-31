@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ScrollRestoration,
-          experimental_ScrollRestorationBeforeHydration as ScrollRestorationBeforeHydration
- } from "next-scroll-restoration";
+import { ScrollRestoration } from "next-scroll-restoration";
 
 
 const poppins = Poppins({

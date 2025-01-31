@@ -5,16 +5,16 @@ import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPers
 
 export default function Post({post}:{post:post}){
     return(
-      <Link href={post.url || `/p/${post.id}`}>
         <li className="post-item rounded-md overflow-hidden relative max-sm:w-full">
+          <Link href={post.url || `/p/${post.id}`}>
             <article className="w-full h-full">
               <figure className="h-full w-full">
                 <Image
                   className="post-image"
                   src={post.previewImageUrl || post.preview_url}
                   alt={post.title || post.tags}
-                  width="600"
-                  height="400"
+                  width="1000"
+                  height="1000"
                   loading="lazy"
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
@@ -58,8 +58,9 @@ export default function Post({post}:{post:post}){
                   </div>
                 </figcaption>
               </figure>
-            </article>
+           </article>
+           </Link>
           </li>
-          </Link>
+          
     )
 }

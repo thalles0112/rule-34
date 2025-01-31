@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: "NSFW HUB",
-  description: "Explore NSFW images at your mom's ass online for free. Create, comment and save your favorite arts",
+  description: "Explore NSFW images at NSFWHUB online for free. Create, comment and save your favorite arts",
 };
 
 
@@ -143,35 +143,35 @@ export default async function Home() {
   
   const categories:featuredCategory[] = [
     {
-      name:'3D',
-      imageUrl: imageUrl,
+      name:'Explore 3D posts',
+      imageUrl: '/img/3d.jpg',
       imageWidth:600,
       imageHeight:400,
       url: '/search/?q=3d'
     },
     {
-      name:'2D',
+      name:'Explore 2D posts',
       imageUrl: '/img/2d.png',
       imageWidth:600,
       imageHeight:400,
       url: '/search/?q=2d'
     },
     {
-      name:'Dragon Ball',
+      name:'Explore Dragon Ball posts',
       imageUrl: '/img/dragonball.png',
       imageWidth:600,
       imageHeight:400,
       url: '/search/?q=dragon_ball'
     },
     {
-      name:'Ass',
+      name:'Explore posts with Ass tag',
       imageUrl: '/img/ass.jpg',
       imageWidth:600,
       imageHeight:400,
       url: '/search/?q=ass'
     },
     {
-      name:'Anime',
+      name:'EXplore posts with Anime tag',
       imageUrl: '/img/anime.png',
       imageWidth:600,
       imageHeight:400,
@@ -190,7 +190,7 @@ export default async function Home() {
       <Header/>
       <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
         <section className="h-32 flex justify-center items-center">
-          <h1 className="text-2xl font-bold">Sitename</h1>
+          <h1 className="text-2xl font-bold">Welcome to NSFW HUB! The biggest gallery of NSFW images</h1>
         </section>
 
 
