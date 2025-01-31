@@ -1,101 +1,217 @@
-import Image from "next/image";
+import axios from "axios";
+import FeaturedCategories from "./components/featured-categories";
+import Footer from "./components/footer";
+import Header from "./components/header/header";
+import ListPosts from "./components/listpost";
+import { featuredCategory, post } from "./types";
+import type { Metadata } from "next";
+export const dynamic = 'force-dynamic'
 
-export default function Home() {
+
+export const metadata: Metadata = {
+  title: "NSFW HUB",
+  description: "Explore NSFW images at your mom's ass online for free. Create, comment and save your favorite arts",
+};
+
+
+export default async function Home() {
+  let imageUrl = '/img/hugeass.jpeg'
+  //imageUrl = '/img/super-choque.jpg'
+  
+  
+
+
+  
+  
+      let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=ai_generated&limit=25&pid=1&json=1')
+      let posts = resp.data
+      
+    
+  
+
+  /*
+  let posts:post[] =  [
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    {
+      imageUrl: imageUrl,
+      previewImageUrl:  imageUrl,
+      title: 'super choque',
+      tags: 'umatag,outratag,maisoutratag',
+      saves:3,
+      likes:20,
+      comments: 4,
+      favorites: 1,
+      url: '/p/superchoque-voano',
+      author: 'goku',
+      authorpicture: '/img/profile.jpeg'
+    },
+    
+
+  ]
+  */
+
+  
+  const categories:featuredCategory[] = [
+    {
+      name:'3D',
+      imageUrl: imageUrl,
+      imageWidth:600,
+      imageHeight:400,
+      url: '/search/?q=3d'
+    },
+    {
+      name:'2D',
+      imageUrl: '/img/2d.png',
+      imageWidth:600,
+      imageHeight:400,
+      url: '/search/?q=2d'
+    },
+    {
+      name:'Dragon Ball',
+      imageUrl: '/img/dragonball.png',
+      imageWidth:600,
+      imageHeight:400,
+      url: '/search/?q=dragon_ball'
+    },
+    {
+      name:'Ass',
+      imageUrl: '/img/ass.jpg',
+      imageWidth:600,
+      imageHeight:400,
+      url: '/search/?q=ass'
+    },
+    {
+      name:'Anime',
+      imageUrl: '/img/anime.png',
+      imageWidth:600,
+      imageHeight:400,
+      url: '/search/?q=anime'
+    }
+
+  ]
+
+  
+    
+
+  
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="page-config" style={{overflowY:'scroll'}} data-scroll-restoration-id="home">
+      <Header/>
+      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
+        <section className="h-32 flex justify-center items-center">
+          <h1 className="text-2xl font-bold">Sitename</h1>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+
+        <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
+          <h2 className="subtitle">Featured tags</h2>
+          <FeaturedCategories categories={categories}/>
+        </section>
+
+
+        <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
+          <h2 className="subtitle">Recommended posts</h2>
+          <ListPosts posts={posts}/>
+        </section>
+
+
+       
+
+     
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+      <Footer/>
     </div>
   );
 }

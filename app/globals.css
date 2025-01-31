@@ -5,17 +5,56 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --section-bg: #e7e7e7;
+  --header-height: 64px;
+  --post-card-width: 330px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: linear-gradient(to bottom, #151516, #1d1c1c);
     --foreground: #ededed;
+    --section-bg: #1f1f24;
+    --header-height: 64px;
+    --post-card-width: 330px;
   }
+}
+
+*{
+  transition: 0.4s;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  height: 100vh;
+  background-image: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.page-config{
+  height: calc(100%);
+  overflow-y: scroll;
+}
+
+.page-config--header{
+  height: calc(100% - var(--header-height));
+}
+
+.section-bg{
+  background-color: var(--background);
+}
+
+
+
+.subtitle{
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+
+.categoria-item{
+  background-color: #2b2831;
+  border-radius: 8px;
 }
