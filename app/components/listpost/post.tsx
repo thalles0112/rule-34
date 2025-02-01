@@ -11,24 +11,24 @@ export default function Post({post}:{post:post}){
               <figure className="h-full w-full">
                 <Image
                   className="post-image"
-                  src={post.previewImageUrl || post.preview_url}
+                  src={post.preview_url}
                   alt={post.title || post.tags}
-                  width="1000"
-                  height="1000"
+                  width="1920"
+                  height="1080"
                   loading="lazy"
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full mb-2 flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
                       {
-                        post.authorpicture
-                        ?<Image width={40} height={40} alt={post.author} src={post.authorpicture}/>
+                        post.author && post.author.picture
+                        ?<Image width={40} height={40} alt={post.author.name} src={post.authorpicture || '/img/profile.jpeg'}/>
                         :<IoPersonOutline size={20}/>
                       }
                       
                     </div>
                     <div>
-                      <label className="post-author font-semibold text-white">{post.author || 'Rule 34 Artist'}</label>
+                      <label className="post-author font-semibold text-white">{post.author && post.author.name? post.author.name:'Rule 34 Artist'}</label>
                     </div>
                   </div>
                   <h2 className="post-title text-xl font-bold text-white">{post.title}</h2>
@@ -42,7 +42,7 @@ export default function Post({post}:{post:post}){
 
                       <div className="flex gap-1 items-center">
                         <IoChatboxOutline color={'#fff'} size={12}/>
-                        <span className="text-sm font-bold text-white">{post.comments || post.comment_count}</span>
+                        <span className="text-sm font-bold text-white">{post.comment_count || post.comments}</span>
                       </div>
                       
                       <div className="flex gap-1 items-center">

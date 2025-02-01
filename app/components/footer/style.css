@@ -1,0 +1,46 @@
+@media (prefers-color-scheme: dark) {
+    .footer-bg{
+        background-image: linear-gradient(#364a5a59, #0e1013);
+    }    
+}
+
+@media (prefers-color-scheme: light) {
+    .footer-bg{
+        background-color: #fff;
+        border-top: 1px solid rgb(199, 197, 197)
+    }    
+}
+
+.footer-bg{
+    
+    box-sizing: border-box;
+    padding: 90px 16px 60px;
+    color: var(--color);
+    font: var(--f-14-bld);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+
+}
+
+footer li a:hover{
+    color: var(--main-color)
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .category{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin: 0 auto
+}
+

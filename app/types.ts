@@ -9,7 +9,7 @@ export type post = {
     comments: number,
     title: string,
     url: string,
-    author: string,
+    author: author,
     authorpicture: string,
     
     preview_url: string,
@@ -24,7 +24,8 @@ export type author = {
     name: string,
     id: number,
     url: string,
-    subscriptions: number
+    subscriptions: number,
+    picture: string
 }
 
 export type comment = {
@@ -60,7 +61,8 @@ export type fullPost = {
     favorited: boolean,
 
     owner: string,
-    file_url:string
+    file_url:string,
+    preview_url: string
 }
 
 export type featuredCategory = {
@@ -69,4 +71,12 @@ export type featuredCategory = {
     imageHeight: number,
     url: string,
     name: string
+}
+
+export type folder = {
+    id: number,
+    name: string,
+    items: fullPost[],
+    private: boolean,
+    owner: string
 }

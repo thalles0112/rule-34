@@ -7,6 +7,7 @@ import './style.css'
 import type { Metadata, ResolvingMetadata } from 'next'
 import Image from "next/image";
 import type { PageProps } from "@/.next/types/app/page";
+import Footer from "@/app/components/footer";
  
 type Props = {
   params: Promise<{ slug: string }>
@@ -41,9 +42,9 @@ export default async function PostPage({params, searchParams}: PageProps){
 
     let post:fullPost = {
       id: 0,
-      previewImageUrl: 'string',
+      previewImageUrl: '',
       imageUrl: '',
-      tags: 'tag1,tag2,tag3,tag4',
+      tags: '',
       likes: 1,
       saves: 1,
       favorites: 1,
@@ -52,12 +53,13 @@ export default async function PostPage({params, searchParams}: PageProps){
         
       ],
       title: '',
-      url: 'string',
+      url: '',
       author: {
         name: '',
         id: 1,
-        url: '/author/string',
-        subscriptions: 1
+        url: '',
+        subscriptions: 1,
+        picture: ''
       },
       authorpicture: '',
       createdAt: '',
@@ -67,6 +69,7 @@ export default async function PostPage({params, searchParams}: PageProps){
 
       owner: '',
       file_url:'',
+      preview_url: '',
       }
 
    
@@ -127,6 +130,8 @@ export default async function PostPage({params, searchParams}: PageProps){
 
                 <PostInteractions post={post}/>
               </main>
+
+              
         </div>
     )
 }

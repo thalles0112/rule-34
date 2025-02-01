@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="juicyads-site-verification" content="bf40bfba1605fa392b157c2c22a110b8" />
       <body
         className={`${poppins.className} antialiased`}
       >

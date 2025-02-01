@@ -23,7 +23,7 @@ export default async function Home() {
 
   
   
-      let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=ai_generated&limit=25&pid=1&json=1')
+      let resp =  await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=ai_generated&limit=25&pid=1&json=1')
       let posts = resp.data
       
     

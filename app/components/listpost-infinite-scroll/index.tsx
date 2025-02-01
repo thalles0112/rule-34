@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
 import "./style.css";
+import { produce } from "immer";
 
 export default function ListPosts({ search, initialPosts }: { search: string; initialPosts: any[] }) {
     const [posts, setPosts] = useState<any[]>(initialPosts);
@@ -53,11 +54,10 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
             if (newPosts.length === 0) {
                 setHasMore(false);
             } else {
-                setPosts(prev => {
-                    const updatedPosts = [...prev, ...newPosts];
-                    
-                    return updatedPosts;
-                });
+                const nextState = produce(posts, draft=>{
+                    draft.push(...newPosts)
+                })
+                setPosts(nextState)
                 setPage(prev => prev + 1);
             }
         } catch (error) {
@@ -68,9 +68,7 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
         }
     }
 
-    useEffect(()=>{
-        fetchOtherPosts()
-    },[search])
+
 
     // 📡 Observa último post para carregar mais
     useEffect(() => {

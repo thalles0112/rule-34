@@ -8,6 +8,7 @@
   --section-bg: #e7e7e7;
   --header-height: 64px;
   --post-card-width: 330px;
+  --main-color: #b331b3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --section-bg: #1f1f24;
     --header-height: 64px;
     --post-card-width: 330px;
+    --main-color: #b331b3;
   }
 }
 
