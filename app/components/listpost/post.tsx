@@ -9,7 +9,7 @@ export default function Post({post}:{post:post}){
           <Link href={post.url || `/p/${post.id}`}>
             <article className="w-full h-full">
               <figure className="h-full w-full">
-                <Image
+                <img
                   className="post-image"
                   src={post.preview_url}
                   alt={post.title || post.tags}
@@ -19,10 +19,10 @@ export default function Post({post}:{post:post}){
                 />
                 <figcaption className="absolute bottom-0 w-full p-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full mb-2 flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
+                    <div className="w-8 h-8 text-white rounded-full mb-2 flex justify-center items-center overflow-hidden bg-black bg-opacity-30">
                       {
                         post.author && post.author.picture
-                        ?<Image width={40} height={40} alt={post.author.name} src={post.authorpicture || '/img/profile.jpeg'}/>
+                        ?<img width={40} height={40} alt={post.author.name} src={post.authorpicture || '/img/profile.jpeg'}/>
                         :<IoPersonOutline size={20}/>
                       }
                       

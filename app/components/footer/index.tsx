@@ -29,7 +29,7 @@ export default function Footer(){
             <div className='flex flex-wrap justify-start gap-y-10 mx-auto'>
                 
                 <section className='category'>
-                    <Image width={200} height={200} className='max-w-20' alt='site logo' src={'/img/sitelogo.png'}/>
+                    <img width={200} height={200} className='max-w-20' alt='site logo' src={'/img/sitelogo.png'}/>
                     <div className='flex gap-2 justify-center'>
                     <IoLogoTwitter/>          
                     <IoLogoInstagram/>                

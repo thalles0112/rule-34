@@ -121,7 +121,7 @@ export default async function PostPage({params, searchParams}: PageProps){
                   {
                     post.file_url.includes('mp4')
                     ?<video className="w-full h-full object-contain post-image-max-height" controls src={post.file_url} />
-                    :<Image alt="" width={1920} height={1080} className="w-full h-full object-contain post-image-max-height" src={post.imageUrl || post.file_url}/>
+                    :<img alt="" width={1920} height={1080} className="w-full h-full object-contain post-image-max-height" src={post.imageUrl || post.file_url}/>
                   }
                     
                   </div>

@@ -11,7 +11,7 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <Link href={categories[0].url}>
         <article className="categoria-item">
         <figure>
-            <Image
+            <img
             src={categories[0].imageUrl}
             alt={categories[0].name}
             width={categories[0].imageWidth}
@@ -27,7 +27,7 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <Link href={categories[1].url}>
         <article className="categoria-item">
         <figure className="flex justify-center items-center">
-            <Image
+            <img
             src={categories[1].imageUrl}
             alt={categories[1].name}
             width={categories[1].imageWidth}
@@ -45,7 +45,7 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <Link href={categories[2].url}>
             <article className="categoria-item">
             <figure>
-                <Image
+                <img
                 src={categories[2].imageUrl}
                 alt={categories[2].name}
                 width={categories[2].imageWidth}
@@ -59,7 +59,7 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <Link href={categories[3].url}>
             <article className="categoria-item">
             <figure>
-                <Image
+                <img
                 src={categories[3].imageUrl}
                 alt={categories[3].name}
                 width={categories[3].imageWidth}
@@ -73,7 +73,7 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <Link href={categories[4].url}>
             <article className="categoria-item">
             <figure>
-                <Image
+                <img
                 src={categories[4].imageUrl}
                 alt={categories[4].name}
                 width={categories[4].imageWidth}

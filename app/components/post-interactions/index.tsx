@@ -108,7 +108,7 @@ export default function PostInteractions({post}:{post:fullPost}){
             
                     <div ref={divRef} className="dark:bg-slate-800 border dark:border-slate-700 rounded-md p-4 flex items-center gap-4">
                       
-                      <div className="rounded-full bg-gray-300 w-10 h-10 flex items-center justify-center">
+                      <div className="rounded-full bg-gray-300 w-8 h-8 flex items-center justify-center">
                         {
                           post.authorpicture
                             ?<img src={post.authorpicture} className="w-full h-full object-cover"/>
@@ -118,10 +118,10 @@ export default function PostInteractions({post}:{post:fullPost}){
                       
                       <div className="flex gap-4 w-fit items-center">
                         <Link href={post.author.url}>
-                            <h2 className="text-lg font-bold">{post.author.name || post.owner}</h2>
+                            <h2 className="text-sm font-bold">{post.author.name || post.owner}</h2>
                         </Link>
                         <button onClick={()=>setFollowing(!following)} 
-                                className={`p-1 rounded-md border w-24 ${following?'bg-blue-500 text-white':'Follow'}`}>
+                                className={`p-1 rounded-md text-sm border w-24 ${following?'bg-blue-500 text-white':'Follow'}`}>
                                     {following?'Following':'Follow'}
                         </button>
                         <span className='text-sm'>{post.author.subscriptions}</span>
@@ -144,7 +144,7 @@ export default function PostInteractions({post}:{post:fullPost}){
                                 </Link>)
                             })}
                         </p>
-                        <button onClick={()=>{setShowAllTags(!showAllTags)}}>{showAllTags?'show less':'show all'}</button>
+                        <button className='text-sm text-gray-400' onClick={()=>{setShowAllTags(!showAllTags)}}>{showAllTags?'show less':'show all'}</button>
                     </div>
 
                     <div className='my-4'></div>

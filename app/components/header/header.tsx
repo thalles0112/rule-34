@@ -39,7 +39,7 @@ export default function Header(){
     return(
         <header className="w-full h-16 z-10 bg-transparent lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between">
             <Link href={'/'}>
-                <Image src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo"/>
+                <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo"/>
             </Link>
             
 
