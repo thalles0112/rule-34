@@ -7,7 +7,7 @@ import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPers
 const Post = forwardRef(({post}:{post:post}, ref) =>{
     return(
 
-      <li className="post-item rounded-md overflow-hidden relative max-sm:w-full">
+      <li ref={ref as any} className="post-item rounded-md overflow-hidden relative max-sm:w-full">
       <Link href={post.url || `/p/${post.id}`}>
         <article className="w-full h-full">
           <figure className="h-full w-full">

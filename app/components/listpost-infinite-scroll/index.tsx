@@ -13,12 +13,10 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
     const [hasMore, setHasMore] = useState(true);
     
     const observer = useRef<IntersectionObserver | null>(null);
-    const lastPostRef = useRef<HTMLDivElement | null>(null);
+    const lastPostRef = useRef<HTMLLIElement | null>(null);
     const loadingRef = useRef(false); // 🔥 Evita requisições duplicadas
 
-    function deleteCache(){
-        sessionStorage.setItem(`cachedPosts-${search}`,'')
-    }
+
 
     async function fetchOtherPosts(){
         setLoading(true);
@@ -28,7 +26,11 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
                 `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${page}&json=1`
             );
             const newPosts = resp.data || [];
-            setPosts(newPosts)
+            const nextState = produce(posts, draft=>{
+                draft.push(...newPosts)
+            })
+            setPosts(nextState)
+            setPage(prev => prev + 1);
         }
         catch(e){
 
