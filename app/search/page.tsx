@@ -19,7 +19,7 @@ type Props = {
     
    
     return {
-      title: `Images with ${kw} XXX`,
+      title: `Images with ${kw} tags`,
       description: `Immerse yourself in ${kw} fresh adult content. Find the hottest images and tags to fap to.`,
       openGraph: {
         images: ['/some-specific-page-image.jpg',],
@@ -30,11 +30,7 @@ type Props = {
 export default async function SearchPage({ params, searchParams }: PageProps ) {
     const search = (await searchParams).q;
 
-    // Limpa o cache caso a pesquisa tenha mudado
-    if (typeof window !== "undefined") {
-        sessionStorage.removeItem("cachedPosts");
-    }
-
+  
     
 
     // Primeira requisição via SSR

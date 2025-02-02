@@ -5,6 +5,7 @@ import axios from "axios";
 import Post from "./post";
 import "./style.css";
 import { produce } from "immer";
+import { IoReloadOutline } from "react-icons/io5";
 
 export default function ListPosts({ search, initialPosts }: { search: string; initialPosts: any[] }) {
     const [posts, setPosts] = useState<any[]>(initialPosts);
@@ -16,20 +17,22 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
     const lastPostRef = useRef<HTMLLIElement | null>(null);
     const loadingRef = useRef(false); // 🔥 Evita requisições duplicadas
 
-
+    useEffect(()=>{
+        setPage(1)
+        setPosts([])
+        fetchOtherPosts()
+    },[search])
 
     async function fetchOtherPosts(){
         setLoading(true);
         loadingRef.current = true; // Evita múltiplas chamadas
         try {
             const resp = await axios.get(
-                `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${page}&json=1`
+                `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${1}&json=1`
             );
             const newPosts = resp.data || [];
-            const nextState = produce(posts, draft=>{
-                draft.push(...newPosts)
-            })
-            setPosts(nextState)
+           
+            setPosts(newPosts)
             setPage(prev => prev + 1);
         }
         catch(e){
@@ -56,6 +59,7 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
             if (newPosts.length === 0) {
                 setHasMore(false);
             } else {
+                
                 const nextState = produce(posts, draft=>{
                     draft.push(...newPosts)
                 })
@@ -69,6 +73,10 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
             loadingRef.current = false; // Libera a flag para nova requisição
         }
     }
+
+
+    // Pesquisa por outros posts quando o termo de pesquisa muda
+ 
 
 
 
@@ -85,14 +93,16 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
         });
 
         if (lastPostRef.current) observer.current.observe(lastPostRef.current);
-    }, [posts, hasMore, loading]); // ✅ Dependendo dos posts, evita problema do ref não estar pronto
+    }, [hasMore, loading]); // ✅ Dependendo dos posts, evita problema do ref não estar pronto
 
     return (
         <ul className="post-grid">
             {posts.map((post, index) => (
                 <Post key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
             ))}
-            {loading && <p>Loading more...</p>}
+            
+                <div className="w-8 h-8 rounded-full border-l border-r border-t"></div>
+            
         </ul>
     );
 }
