@@ -8,6 +8,8 @@ import Comment from '../comment'
 import FolderModalSelector from '../folder-modal-selector'
 import type { folder } from '../../types'
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
+import Script from 'next/script'
+
 
 export default function PostInteractions({post}:{post:fullPost}){
     const [following, setFollowing] = useState(false)
@@ -140,14 +142,20 @@ export default function PostInteractions({post}:{post:fullPost}){
                             Tags: {post.tags.split(' ').map((tag, idx)=>{
                                 return(
                                 <Link key={idx} href={'/search?q='+tag} className='border flex rounded-md p-1 m-1 hover:opacity-35'>
-                                    {tag}
+                                    <p>{tag}</p>
                                 </Link>)
                             })}
                         </p>
                         <button className='text-sm text-gray-400' onClick={()=>{setShowAllTags(!showAllTags)}}>{showAllTags?'show less':'show all'}</button>
                     </div>
-
-                    <div className='my-4'></div>
+                    
+                    <div className="dark:bg-slate-800 border dark:border-slate-700 p-4 flex flex-col items-start gap-4 my-4 relative">
+                        <Script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></Script>
+                        <span className='absolute text-gray-300 text-sm top-1 -z-10'>ad here</span>
+                        <ins id="1079717" data-width="728" data-height="90"></ins>
+                        <Script src='/scripts/leaderboard.js' type="text/javascript" data-cfasync="false" async></Script>
+                    </div>
+                    
 
                     <div className="dark:bg-slate-800 border h-96 dark:border-slate-700 p-4 flex flex-col items-start gap-4">
                          <form onSubmit={(e)=>handleComment(e)} id='desktop-search' className="min-h-10 items-center flex max-sm:hidden">

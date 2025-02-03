@@ -50,11 +50,15 @@ body {
 
 .title{
   font-variant: all-petite-caps;
+  font-size: 2.1em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5em auto
 }
 
 .subtitle{
-  font-size: 2em;
-  margin-bottom: 0.5em;
+  font-size: 1.8em;
+  margin: 0.5em auto;
   font-variant: all-petite-caps;
 }
 
