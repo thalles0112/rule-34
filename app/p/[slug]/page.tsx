@@ -5,10 +5,12 @@ import axios from "axios";
 import {parseStringPromise} from 'xml2js'
 import './style.css'
 import type { Metadata, ResolvingMetadata } from 'next'
-import Image from "next/image";
 import type { PageProps } from "@/.next/types/app/page";
-import Footer from "@/app/components/footer";
+import CustomImage from "@/app/components/Image";
+
  
+
+
 type Props = {
   params: Promise<{ slug: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -121,7 +123,15 @@ export default async function PostPage({params, searchParams}: PageProps){
                   {
                     post.file_url.includes('mp4')
                     ?<video className="w-full h-full object-contain post-image-max-height" controls src={post.file_url} />
-                    :<img alt="" width={1920} height={1080} className="w-full h-full object-contain post-image-max-height" src={post.imageUrl || post.file_url}/>
+                    :<CustomImage
+                    src={post.file_url}
+                    placeholderSrc={post.preview_url}
+                    alt="Imagem personalizada"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-full object-contain post-image-max-height"
+                  />
+                  
                   }
                     
                   </div>

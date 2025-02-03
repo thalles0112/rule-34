@@ -3,6 +3,8 @@ import ListPosts from "../components/listpost-infinite-scroll";
 import Header from "../components/header/header";
 import type { PageProps } from "@/.next/types/app/page";
 import type { Metadata, ResolvingMetadata } from 'next'
+import Script from "next/script";
+
 
 type Props = {
     params: Promise<{ slug: string }>
@@ -30,7 +32,9 @@ type Props = {
 export default async function SearchPage({ params, searchParams }: PageProps ) {
     const search = (await searchParams).q;
 
-  
+    let className = 'static'
+
+ 
     
 
     // Primeira requisição via SSR
@@ -43,6 +47,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8 justify-center items-center">
                 {initialPosts.length ? <ListPosts search={search} initialPosts={initialPosts} /> : <span>Nothing found</span>}
             </main>
+            
         </div>
     );
 }

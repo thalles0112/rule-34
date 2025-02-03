@@ -11,7 +11,7 @@ export type post = {
     url: string,
     author: author,
     authorpicture: string,
-    
+    file_url: string,
     preview_url: string,
     comment_count:number,
     score:number,

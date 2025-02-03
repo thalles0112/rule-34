@@ -44,7 +44,7 @@ export default function Footer(){
                                         pages.map((page,idx)=>{
                                             return(
                                                 <li key={idx} className='text-sm font-bold mb-6 page-item'>
-                                                    <Link href={`info/${page}`}>
+                                                    <Link href={`/info/${page}`}>
                                                         {page}
                                                     </Link>
                                                 </li>

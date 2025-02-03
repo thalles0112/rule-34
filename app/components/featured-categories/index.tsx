@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export default function FeaturedCategories({categories}:{categories:featuredCategory[]}){
     return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 grid-container">
     
     <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-2">
         <Link href={categories[0].url}>

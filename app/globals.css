@@ -48,15 +48,28 @@ body {
   background-color: var(--background);
 }
 
-
+.title{
+  font-variant: all-petite-caps;
+}
 
 .subtitle{
   font-size: 2em;
   margin-bottom: 0.5em;
+  font-variant: all-petite-caps;
 }
 
 
 .categoria-item{
   background-color: #2b2831;
   border-radius: 8px;
+}
+
+
+
+.ad-banner#banner-billboard{
+  min-width: 300px;
+  max-width: 100%;
+
+  
+  max-height: 250px;
 }
