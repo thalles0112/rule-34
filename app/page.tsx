@@ -196,7 +196,7 @@ export default async function Home() {
 
         <section className="border flex justify-center items-center ad-banner" id='banner-billboard'>
           <Script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></Script>
-          <ins id="1079708" data-width="908" data-height="258">Your ad here</ins>
+          <ins id="1079708" data-width="908" data-height="258"></ins>
           <Script type="text/javascript" data-cfasync="false" async src="/scripts/juicyads.js">
             
           </Script>
