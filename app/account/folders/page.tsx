@@ -4,9 +4,9 @@ import { FormEvent, useEffect, useState, useRef } from "react"
 import type { folder } from "../../types"
 import { produce } from "immer"
 import Link from "next/link"
-import Image from "next/image"
 import Footer from "../../components/footer"
 import { IoFolder } from "react-icons/io5"
+import CustomImage from "@/app/components/Image"
 
 export default function Account(){
     const [creatingFolder, setCreatingFolder] = useState(false)
@@ -101,7 +101,7 @@ export default function Account(){
                                     return(
                                         <div key={idx} className="w-1/2 h-1/2 overflow-hidden">
                                             
-                                            <Image className="w-full object-cover h-full" src={item.preview_url} width={100} height={100} alt="folder preview"/>
+                                            <CustomImage className="w-full object-cover h-full" src={item.preview_url} width={100} height={100} alt="folder preview"/>
                                         </div>
                                         
                                     )
