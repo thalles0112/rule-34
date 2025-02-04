@@ -54,9 +54,11 @@ export default function Header<HTMLElement>(props:headerProps) {
 
             if(body.scrollTop >= 64){
                 setFixed(true)
+                body.classList.add('pt-16')
             }
             else{
                 setFixed(false)
+                body.classList.remove('pt-16')
             }
 
 
@@ -82,6 +84,11 @@ export default function Header<HTMLElement>(props:headerProps) {
       }
     }, []);
   
+
+    useEffect(()=>{
+        const cachedSearch = sessionStorage.getItem('q') || ''
+        setSearchParam(cachedSearch)
+    },[])
 
 
 

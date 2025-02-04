@@ -1,12 +1,12 @@
 'use client'
-import Header from "@/app/components/header/header"
+import Header from "@/app/components/ui/header/header"
 import { FormEvent, useEffect, useState, useRef } from "react"
 import type { folder } from "../../types"
 import { produce } from "immer"
 import Link from "next/link"
-import Footer from "../../components/footer"
+import Footer from "../../components/ui/footer"
 import { IoFolder } from "react-icons/io5"
-import CustomImage from "@/app/components/Image"
+import CustomImage from "@/app/components/ui/Image"
 
 export default function Account(){
     const [creatingFolder, setCreatingFolder] = useState(false)

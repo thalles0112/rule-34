@@ -1,8 +1,8 @@
 'use client'
-import Header from "@/app/components/header/header"
+import Header from "@/app/components/ui/header/header"
 
-import Footer from "../components/footer"
-import LoginForm from "../components/login-form"
+import Footer from "../components/ui/footer"
+import LoginForm from "../components/ui/login-form"
 import Link from "next/link"
 
 

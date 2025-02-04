@@ -27,6 +27,10 @@
   scroll-behavior: smooth;
 }
 
+.accent-color{
+  color: var(--main-color)
+}
+
 body {
   color: var(--foreground);
   height: 100vh;
@@ -53,7 +57,6 @@ body {
   font-size: 2.1em;
   font-weight: bold;
   text-align: center;
-  margin: 0.5em auto
 }
 
 .subtitle{
@@ -77,3 +80,8 @@ body {
   
   max-height: 250px;
 }
+
+#site-description p{
+  line-height: 22px;
+}
+

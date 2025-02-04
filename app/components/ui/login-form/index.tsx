@@ -1,8 +1,10 @@
+'use client'
 import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios"
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"
 import { FormEvent, useEffect, useState, useRef } from "react"
+import api from "../../services/backend";
 
 interface CustomFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
     onLogin: ()=>void
@@ -18,6 +20,8 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
     const handleLogin = async(e:FormEvent)=>{
         e.preventDefault()
 
+        console.log('olha, ate aq foi')
+
         if (!formRef.current) return;
         
         const formdata = new FormData(formRef.current)
@@ -25,9 +29,14 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
         const data = Object.fromEntries(formdata.entries())
 
         if(register){
-            const res = await axios.post('/api/auth/login', JSON.stringify(data))
+        
+            const res = api.post('/auth/register/', JSON.stringify(data))
+        
+            
+            
         }else{
-            const res = await axios.post('/api/auth/register', JSON.stringify(data))
+            const res = api.post('/auth/login/', JSON.stringify(data))
+            
         }
 
         
@@ -35,7 +44,7 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
         
     }
   return (
-      <form {...props} className="border mt-10 max-sm:w-11/12 w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
+      <form ref={formRef} {...props} className="border mt-10 max-sm:w-11/12 w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
                     <h2 className="text-center w-full mt-10">{register?'Sign up':'Sign in'}</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="email">Email</label>

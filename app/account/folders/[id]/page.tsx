@@ -1,8 +1,8 @@
 'use client'
 import { PageProps } from "@/.next/types/app/page"
-import Footer from "@/app/components/footer"
-import Header from "@/app/components/header/header"
-import ListPosts from "@/app/components/listpost"
+import Footer from "@/app/components/ui/footer"
+import Header from "@/app/components/ui/header/header"
+import ListPosts from "@/app/components/ui/listpost"
 import { post, type folder } from "@/app/types"
 import { produce } from "immer"
 import { useParams, useRouter } from "next/navigation"

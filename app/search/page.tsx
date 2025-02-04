@@ -1,9 +1,10 @@
 import axios from "axios";
-import ListPosts from "../components/listpost-infinite-scroll";
-import Header from "../components/header/header";
+import ListPosts from "../components/ui/listpost-infinite-scroll";
+import Header from "../components/ui/header/header";
 import type { PageProps } from "@/.next/types/app/page";
 import type { Metadata, ResolvingMetadata } from 'next'
 import Script from "next/script";
+import { post } from "../types";
 
 
 type Props = {
@@ -17,22 +18,37 @@ type Props = {
   ): Promise<Metadata> {
     // read route params
     const kw = (await searchParams).q
-   
-    
+    const resp = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${kw}&limit=25&pid=1&json=1`);
+    const data:post = resp.data[0]
    
     return {
-      title: `Images with ${kw} tags`,
-      description: `Immerse yourself in ${kw} fresh adult content. Find the hottest images and tags to fap to.`,
-      openGraph: {
-        images: ['/some-specific-page-image.jpg',],
+      title: `Images tagged ${kw}`,
+      description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
+                    Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                    If it exists, there's porn of it`,
+      twitter:{
+        title: `Images tagged ${kw}`,
+        images: [data.preview_url]
       },
+      openGraph:{
+        title: `Images tagged ${kw}`,
+        description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
+                    Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                    If it exists, there's porn of it`,
+        
+        type: "website",
+        siteName: "NSFW Hub",
+        url: "https://nsfwhub.net",
+        images: [data.preview_url],
+        
+      }
     }
   }
 
 export default async function SearchPage({ params, searchParams }: PageProps ) {
     const search = (await searchParams).q;
 
-    let className = 'static'
+
 
  
     
@@ -45,6 +61,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
         <div className="page-config" data-scroll-restoration-id="search">
           <Header/>
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8 justify-center items-center">
+              <h1 className="title mt-8">Images tagged with {search}</h1>
                 {initialPosts.length ? <ListPosts search={search} initialPosts={initialPosts} /> : <span>Nothing found</span>}
             </main>
             

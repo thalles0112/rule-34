@@ -1,8 +1,8 @@
 import axios from "axios";
-import FeaturedCategories from "./components/featured-categories";
-import Footer from "./components/footer";
-import Header from "./components/header/header";
-import ListPosts from "./components/listpost";
+import FeaturedCategories from "./components/ui/featured-categories";
+import Footer from "./components/ui/footer";
+import Header from "./components/ui/header/header";
+import ListPosts from "./components/ui/listpost";
 import { featuredCategory, post } from "./types";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -10,8 +10,21 @@ export const dynamic = 'force-dynamic'
 
 
 export const metadata: Metadata = {
-  title: "NSFWHUB",
-  description: "Explore the largest diversity of adult content online for free. Anime rule 34, cartoon xxx, porn images, and whatever you can imagine is here!",
+  title: "NSFW Hub",
+  description: "🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
+  twitter:{
+    title: "NSFW Hub",
+    images: ["https://nsfwhub.net/img/anime.png"]
+  },
+  openGraph:{
+    title:"NSFW Hub",
+    description:"🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
+    type: "website",
+    siteName: "NSFW Hub",
+    url: "https://nsfwhub.net",
+    images: ["https://nsfwhub.net/img/anime.png"]
+    
+  }
 };
 
 
@@ -204,20 +217,20 @@ export default async function Home() {
 
 
         <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
-          <h2 className="subtitle">Featured tags</h2>
+          <h2 className="subtitle"><span className="accent-color">Featured </span>tags</h2>
           <FeaturedCategories categories={categories} />
         </section>
 
 
         <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
-          <h2 className="subtitle" >For you</h2>
+          <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
           <ListPosts posts={posts} />
         </section>
 
 
-        <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm text-justify">
+        <section id="site-description" className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm dark:text-gray-400 text-gray-500  max-sm:w-11/12 sm:w-10/12 mx-auto">
           <div className="" translate="no">
-            <h1 className="title"><span>NSFWHUB.net – The Ultimate Destination for High-Quality Adult Artwork</span></h1>
+            <h1 className="title dark:text-white text-black mb-12"><span>NSFWHUB.net the NSFW Artwork's home</span></h1>
             <h2 className="subtitle"><span>Welcome to the Future of NSFW Content</span></h2>
             <p><span>NSFWHUB.net is the </span>
               <span><strong>leading platform</strong></span>
@@ -278,7 +291,7 @@ export default async function Home() {
                     <span>We understand the importance of a </span>
                     <span><strong>safe</strong></span><span> and </span>
                     <span><strong>discreet</strong></span><span> browsing experience. NSFWHUB.net guarantees </span>
-                    <span><strong>100% ad-free</strong></span><span> navigation with </span>
+                    <span>navigation with </span>
                     <span><strong>no pop-ups</strong></span><span> or annoying distractions. Your data and preferences remain completely private, ensuring a worry-free journey into the world of NSFW digital art.</span>
                   </p>
                   

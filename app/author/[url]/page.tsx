@@ -1,5 +1,5 @@
-import Footer from "@/app/components/footer"
-import Header from "@/app/components/header/header"
+import Footer from "@/app/components/ui/footer"
+import Header from "@/app/components/ui/header/header"
 
 export default function AuthorPage(){
     return (

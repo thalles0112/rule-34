@@ -1,12 +1,12 @@
 import { fullPost } from "@/app/types";
-import Header from "../../components/header/header";
-import PostInteractions from "@/app/components/post-interactions";
+import Header from "../../components/ui/header/header";
+import PostInteractions from "@/app/components/ui/post-interactions";
 import axios from "axios";
 import {parseStringPromise} from 'xml2js'
 import './style.css'
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { PageProps } from "@/.next/types/app/page";
-import CustomImage from "@/app/components/Image";
+import CustomImage from "@/app/components/ui/Image";
 
  
 
@@ -31,10 +31,19 @@ export async function generateMetadata(
  
   return {
     title: post.data[0].tags,
-    openGraph: {
-      images: [post.data.file_url,],
-      
+    twitter:{
+      title: "NSFW Hub",
+      images: [post.data.file_url]
     },
+    openGraph:{
+      title:"NSFW Hub",
+      description:"🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
+      type: "website",
+      siteName: "NSFW Hub",
+      url: "https://nsfwhub.net",
+      images: [post.data.file_url]
+      
+    }
   }
 }
 
