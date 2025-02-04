@@ -35,7 +35,7 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
         
     }
   return (
-      <form {...props} className="border max-sm:w-11/12 w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
+      <form {...props} className="border mt-10 max-sm:w-11/12 w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
                     <h2 className="text-center w-full mt-10">{register?'Sign up':'Sign in'}</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="email">Email</label>
