@@ -4,19 +4,36 @@ import Footer from "@/app/components/footer"
 import Header from "@/app/components/header/header"
 import ListPosts from "@/app/components/listpost"
 import { post, type folder } from "@/app/types"
-import { useParams } from "next/navigation"
+import { produce } from "immer"
+import { useParams, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+
 
 export default function FolderPage(){
     const [posts, setPosts] = useState<folder>()
+    const [folders, setFolders] = useState<folder[]>([])
     const params = useParams()
     const id = params.id || 0
+    const router = useRouter()
+
+    function deleteFolder(idx:number){
+        
+        const nextState = produce(folders, draft=>{
+            draft.splice(idx,1)
+        })
+
+        
+        localStorage.setItem('folders', JSON.stringify(nextState))
+        router.back()
+    }
+
 
     useEffect(()=>{
         const cachedfolders = localStorage.getItem('folders') || '[]'
-        const folders:folder[] = JSON.parse(cachedfolders)
-        if(folders){
-            const filteredFolder:folder = folders.filter(f=>f.id==id)[0]
+        const _folders:folder[] = JSON.parse(cachedfolders)
+        if(_folders){
+            setFolders(_folders)
+            const filteredFolder:folder = _folders.filter(f=>f.id==id)[0]
             setPosts(filteredFolder)
         }
         
@@ -29,6 +46,11 @@ export default function FolderPage(){
             <Header/>
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
                 <h1 className="text-xl font-bold mt-10">{posts?posts.name:''}</h1>
+                <div>{folders?.map((f,idx)=>{
+                    return(
+                        <button onClick={()=>{deleteFolder(idx)}} className={f.id==id?'':'hidden'}>Delete Folder</button>
+                    )
+                })}</div>
                 <ListPosts posts={posts?posts.items:[]}/>
             </main>
             <Footer/>

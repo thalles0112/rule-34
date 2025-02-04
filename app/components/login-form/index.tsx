@@ -21,8 +21,9 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
         const formData = {
             email: e.target.email.value,
             password: e.target.password.value,
-            username: e.target.username.value
+            username: e.target.username? e.target.username.value:''
         }
+
 
         if(register){
             const res = await axios.post('/api/auth/login', JSON.stringify(formData))
@@ -35,8 +36,8 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
         
     }
   return (
-      <form {...props} className="border max-sm:w-11/12 sm:w-10/12 md:w-6/12 lg:w-3/12 mx-auto p-10 gap-y-10 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
-                    
+      <form {...props} className="border max-sm:w-11/12 w-fit mx-auto p-10 gap-y-10 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
+                    <h2 className="text-center w-full mt-10">{register?'Sign up':'Sign in'}</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="email">Email</label>
                         <input name="email" className="border-b w-full outline-none text-sm mt-2 bg-transparent text-gray-600 dark:text-gray-300"/>
