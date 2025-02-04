@@ -89,7 +89,7 @@ export default function Account(){
             <Header/>
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8 page-config--header">
                 <h2 className="text-center w-full mt-10">Sign in & Sign up not working yet :( but still you can save some posts locally creating a folder and adding posts to it.</h2>
-                <div className="w-full h-fit flex items-center gap-2">
+                <div className="w-full max-w-full h-fit flex flex-wrap items-center gap-2">
                 
                 {
                     folders && folders.map((folder,idx)=>{
