@@ -18,17 +18,16 @@ const LoginForm: React.FC<CustomFormProps> = ({ onLogin, className, ...props }) 
     const handleLogin = async(e:FormEvent)=>{
         e.preventDefault()
 
-        const formData = {
-            email: e.target.email.value,
-            password: e.target.password.value,
-            username: e.target.username? e.target.username.value:''
-        }
+        if (!formRef.current) return;
+        
+        const formdata = new FormData(formRef.current)
 
+        const data = Object.fromEntries(formdata.entries())
 
         if(register){
-            const res = await axios.post('/api/auth/login', JSON.stringify(formData))
+            const res = await axios.post('/api/auth/login', JSON.stringify(data))
         }else{
-            const res = await axios.post('/api/auth/register', JSON.stringify(formData))
+            const res = await axios.post('/api/auth/register', JSON.stringify(data))
         }
 
         
