@@ -10,6 +10,7 @@ import type { folder } from '../../../types'
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 import Script from 'next/script'
 import './style.css'
+import AdComponent from '../../services/adloader'
 
 
 export default function PostInteractions({post}:{post:fullPost}){
@@ -151,10 +152,7 @@ export default function PostInteractions({post}:{post:fullPost}){
                     </div>
                     
                     <div className="dark:bg-slate-800 border dark:border-slate-700 p-4 flex flex-col items-start gap-4 my-4 relative" id="banner-ad">
-                        <Script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></Script>
-                        <span className='absolute text-gray-300 text-sm top-1 -z-10'>ad here</span>
-                        <ins id="1079717" data-width="728" data-height="90"></ins>
-                        <Script src='/scripts/leaderboard.js' type="text/javascript" data-cfasync="false" async></Script>
+                        <AdComponent type='leaderboard'/>
                     </div>
                     
 

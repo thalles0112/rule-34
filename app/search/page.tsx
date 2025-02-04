@@ -5,6 +5,8 @@ import type { PageProps } from "@/.next/types/app/page";
 import type { Metadata, ResolvingMetadata } from 'next'
 import Script from "next/script";
 import { post } from "../types";
+import Head from "next/head";
+import AdComponent from "../components/services/adloader";
 
 
 type Props = {
@@ -59,9 +61,18 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
 
     return (
         <div className="page-config" data-scroll-restoration-id="search">
+          
+                  <link rel="icon" href="/favicon.ico" sizes="any"/>
           <Header/>
+          
+
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8 justify-center items-center">
+            
               <h1 className="title mt-8">Images tagged with {search}</h1>
+              <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
+                <AdComponent type="billboard"/>
+
+              </section>
                 {initialPosts.length ? <ListPosts search={search} initialPosts={initialPosts} /> : <span>Nothing found</span>}
             </main>
             

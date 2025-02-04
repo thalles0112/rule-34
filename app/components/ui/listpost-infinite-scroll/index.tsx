@@ -101,7 +101,14 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
                 <Post key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
             ))}
             
-                <div className="w-8 h-8 rounded-full border-l border-r border-t"></div>
+            <div className="w-full h-8">
+              <div className="w-8 h-8 mx-auto">        
+                <svg className="animate-spin " width="32" height="32" viewBox="-25 -25 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" style={{transform:"rotate(-90deg)"}}>
+                  <circle r="90" cx="100" cy="100" fill="transparent" stroke="#e0e0e0" strokeWidth="16px"></circle>
+                  <circle r="90" cx="100" cy="100" stroke="#b331b3" strokeWidth="16px" strokeLinecap="round" strokeDashoffset="447px" fill="transparent" strokeDasharray="565.48px"></circle>
+                </svg>
+              </div>
+            </div>
             
         </ul>
     );

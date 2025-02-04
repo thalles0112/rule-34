@@ -3,6 +3,7 @@ import Header from "@/app/components/ui/header/header";
 import './style.css'
 import type { Metadata, ResolvingMetadata } from 'next'
 import Script from "next/script";
+import AdComponent from "@/app/components/services/adloader";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,
@@ -40,11 +41,7 @@ export default async function InfoPage({params, searchParams}:PageProps){
                 <h1 className="my-10 text-center text-2xl">{slug.replace('%20', ' ').replace('%20', ' ')}</h1>
 
                 <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
-                <Script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></Script>
-                <ins id="1079708" data-width="908" data-height="258"></ins>
-                <Script type="text/javascript" data-cfasync="false" async src="/scripts/juicyads.js">
-
-                </Script>
+                <AdComponent type="billboard"/>
               </section>
 
               <section>
