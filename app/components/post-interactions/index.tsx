@@ -142,7 +142,7 @@ export default function PostInteractions({post}:{post:fullPost}){
                             Tags: {post.tags.split(' ').map((tag, idx)=>{
                                 return(
                                 <Link key={idx} href={'/search?q='+tag} className='border flex rounded-md p-1 m-1 hover:opacity-35'>
-                                    <p>{tag}</p>
+                                    {tag}
                                 </Link>)
                             })}
                         </p>
@@ -159,7 +159,7 @@ export default function PostInteractions({post}:{post:fullPost}){
 
                     <div className="dark:bg-slate-800 border h-96 dark:border-slate-700 p-4 flex flex-col items-start gap-4">
                          <form onSubmit={(e)=>handleComment(e)} id='desktop-search' className="min-h-10 items-center flex max-sm:hidden">
-                            <div contentEditable={true} className="min-w-96 max-w-96 min-h-[40px] p-2 border-b focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden break-words">
+                            <div onChange={(e)=>{console.log(e)}} contentEditable={true} className="min-w-96 max-w-96 min-h-[40px] p-2 border-b focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden break-words">
 
                             </div>
 
