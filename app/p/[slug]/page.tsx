@@ -30,13 +30,23 @@ export async function generateMetadata(
   
  
   return {
-    title: post.data[0].tags,
+    title: `NSFW Hub | ${post.data[0].tags}`,
+    description:"🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
+    keywords: post.data[0].tags,
+    classification: "Adult",
+    applicationName: 'NSFW Hub',
+    other:{
+      rating: 'RTA-5042-1996-1400-1577-RTA',
+    },
+  
+    
     twitter:{
-      title: "NSFW Hub",
-      images: [post.data.file_url]
+      title: `NSFW Hub | ${post.data[0].tags}`,
+      images: [post.data.file_url],
+      
     },
     openGraph:{
-      title:"NSFW Hub",
+      title:`NSFW Hub | ${post.data[0].tags}`,
       description:"🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
       type: "website",
       siteName: "NSFW Hub",
@@ -135,7 +145,7 @@ export default async function PostPage({params, searchParams}: PageProps){
                     :<CustomImage
                     src={post.file_url}
                     placeholderSrc={post.preview_url}
-                    alt="Imagem personalizada"
+                    alt={post.tags}
                     width={1920}
                     height={1080}
                     className="w-full h-full object-contain post-image-max-height"

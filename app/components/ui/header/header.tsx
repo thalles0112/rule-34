@@ -52,13 +52,13 @@ export default function Header<HTMLElement>(props:headerProps) {
             
 
 
-            if(body.scrollTop >= 64){
+            if(body.scrollTop > 64){
                 setFixed(true)
-                body.classList.add('pt-16')
+                body.classList.add('mt-16')
             }
             else{
                 setFixed(false)
-                body.classList.remove('pt-16')
+                body.classList.remove('mt-16')
             }
 
 
@@ -97,7 +97,7 @@ export default function Header<HTMLElement>(props:headerProps) {
     return (
         <header
             ref={headerRef}
-            className={`${fixed?'is-sticky transition-transform duration-300':'isnt-styicky'} w-full h-16 z-10 dark:bg-black bg-white lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
+            className={`${fixed?'is-sticky transition-transform duration-300':'isnt-styicky'} w-full h-16 dark:bg-black bg-white lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
             <Link href={'/'}>
                 <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo" />

@@ -13,6 +13,10 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: "NSFW Hub",
   description: "🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
+  applicationName: 'NSFW Hub',
+  other:{
+    rating: 'RTA-5042-1996-1400-1577-RTA',
+  },
   twitter:{
     title: "NSFW Hub",
     images: ["https://nsfwhub.net/img/anime.png"]
@@ -38,7 +42,7 @@ export default async function Home() {
 
 
 
-  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=ai_generated+ass+1girls&limit=25&pid=1&json=1')
+  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=score:>100 anime&limit=40&pid=1&json=1')
   let posts = resp.data
 
 
@@ -158,35 +162,35 @@ export default async function Home() {
 
   const categories: featuredCategory[] = [
     {
-      name: 'Explore 3D posts',
-      imageUrl: '/img/3d.jpg',
+      name: 'Juicy ass',
+      imageUrl: '/img/juicy-ass.jpg',
       imageWidth: 397,
       imageHeight: 256,
-      url: '/search/?q=3d'
+      url: '/search/?q=juicy_ass'
     },
     {
-      name: 'Explore 2D posts',
+      name: 'Cute',
       imageUrl: '/img/2d.png',
       imageWidth: 397,
       imageHeight: 256,
-      url: '/search/?q=2d'
+      url: '/search/?q=cute score:>100'
     },
     {
-      name: 'Explore Dragon Ball posts',
-      imageUrl: '/img/dragonball.png',
+      name: 'Anal',
+      imageUrl: '/img/anal.png',
       imageWidth: 397,
       imageHeight: 256,
-      url: '/search/?q=dragon_ball'
+      url: '/search/?q=anal'
     },
     {
-      name: 'Explore posts with Ass tag',
-      imageUrl: '/img/ass.jpg',
+      name: '2B',
+      imageUrl: '/img/2b.png',
       imageWidth: 397,
       imageHeight: 256,
-      url: '/search/?q=ass'
+      url: '/search/?q=yorha_2b score:>100'
     },
     {
-      name: 'EXplore posts with Anime tag',
+      name: 'Anime',
       imageUrl: '/img/anime.png',
       imageWidth: 397,
       imageHeight: 256,

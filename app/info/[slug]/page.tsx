@@ -20,6 +20,10 @@ export async function generateMetadata(
  
   return {
     title: `${slug} | NSFW Hub`,
+    applicationName: 'NSFW Hub',
+    other:{
+      rating: 'RTA-5042-1996-1400-1577-RTA',
+    },
     openGraph:{
       title:"NSFW Hub",
       description:"🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
