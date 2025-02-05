@@ -22,29 +22,58 @@ type Props = {
     const kw = (await searchParams).q
     const resp = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${kw}&limit=25&pid=1&json=1`);
     const data:post = resp.data[0]
-   
-    return {
-      title: `Images tagged ${kw}`,
-      description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
-                    Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
-                    If it exists, there's porn of it`,
-      twitter:{
-        title: `Images tagged ${kw}`,
-        images: [data.preview_url]
-      },
-      openGraph:{
+
+    if(data){
+      return {
         title: `Images tagged ${kw}`,
         description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
-                    Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
-                    If it exists, there's porn of it`,
-        
-        type: "website",
-        siteName: "NSFW Hub",
-        url: "https://nsfwhub.net",
-        images: [data.preview_url],
-        
+                      Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                      If it exists, there's porn of it`,
+        twitter:{
+          title: `Images tagged ${kw}`,
+          images: [data.preview_url?data.preview_url:'img/anime.png.']
+        },
+        openGraph:{
+          title: `Images tagged ${kw}`,
+          description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
+                      Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                      If it exists, there's porn of it`,
+          
+          type: "website",
+          siteName: "NSFW Hub",
+          url: "https://nsfwhub.net",
+          images: [data.preview_url?data.preview_url:'img/anime.png.']
+          
+        }
       }
     }
+
+    else{
+      return {
+        title: `Images tagged ${kw}`,
+        description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
+                      Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                      If it exists, there's porn of it`,
+        twitter:{
+          title: `Images tagged ${kw}`,
+          images: ['img/anime.png.']
+        },
+        openGraph:{
+          title: `Images tagged ${kw}`,
+          description: `Explore a growing gallery of hot images tagged with ${kw} at NSFWHub.net 
+                      Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
+                      If it exists, there's porn of it`,
+          
+          type: "website",
+          siteName: "NSFW Hub",
+          url: "https://nsfwhub.net",
+          images: ['img/anime.png.']
+          
+        }
+      }
+    }
+   
+    
   }
 
 export default async function SearchPage({ params, searchParams }: PageProps ) {
