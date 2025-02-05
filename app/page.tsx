@@ -209,7 +209,7 @@ export default async function Home() {
       <Header />
       <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
         <section className="h-32 flex justify-center items-center">
-          <h1 className="text-xl bg-black text-white dark:bg-white dark:text-black rounded-md w-full p-2 font-bold text-center title">Welcome to NSFW HUB! The biggest gallery of NSFW images</h1>
+          <h1 className="text-xl rounded-md w-full p-2 font-bold text-center accent-color title">NSFW HUB</h1>
         </section>
 
         <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
