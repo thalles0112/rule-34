@@ -86,7 +86,9 @@ body {
 .subtitle{
   font-size: 1.8em;
   margin: 0.5em auto;
+  margin-top: 30px;
   font-variant: all-petite-caps;
+  font-weight: bold;
 }
 
 
