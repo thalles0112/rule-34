@@ -26,6 +26,7 @@ export default function CustomImage({ src, placeholderSrc, ...props }: CustomIma
       {...props}
       src={currentSrc}
       className={`custom-image ${props.className || ""} ${loaded ? "loaded" : ""}`}
+      loading="lazy"
     />
   );
 }

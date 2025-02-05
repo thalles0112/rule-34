@@ -164,8 +164,8 @@ export default async function Home() {
     {
       name: 'Juicy ass',
       imageUrl: '/img/juicy-ass.webp',
-      imageWidth: 668,
-      imageHeight: 429,
+      imageWidth: 397,
+      imageHeight: 256,
       url: '/search/?q=juicy_ass'
     },
     {
@@ -207,9 +207,10 @@ export default async function Home() {
   return (
     <div className="page-config" style={{ overflowY: 'scroll' }} data-scroll-restoration-id="home">
       <Header />
-      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
-        <section className="h-32 flex justify-center items-center">
-          <h1 className="text-xl rounded-md w-full p-2 font-bold text-center accent-color title">NSFW HUB</h1>
+      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
+        
+        <section className="flex justify-center items-center">
+          <h1 className="text-xl w-full p-2 font-bold text-center title">NSFW <span className="accent-color">HUB</span></h1>
         </section>
 
         <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
@@ -217,13 +218,13 @@ export default async function Home() {
         </section>
 
 
-        <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
-          <h2 className="subtitle"><span className="accent-color">Featured </span>tags</h2>
+        <section className="flex flex-col p-4 gap-y-4 justify-center items-center section-bg">
+          <h2 className="subtitle"><span className="accent-color">Featured</span> tags</h2>
           <FeaturedCategories categories={categories} />
         </section>
 
 
-        <section className="flex flex-col justify-center items-center section-bg p-4 rounded-md">
+        <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
           <ListPosts posts={posts} />
         </section>
@@ -231,81 +232,67 @@ export default async function Home() {
 
         <section id="site-description" className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm dark:text-gray-400 text-gray-500  max-sm:w-11/12 sm:w-10/12 mx-auto">
           <div className="" translate="no">
-            <h1 className="title dark:text-white text-black mb-12"><span>NSFWHUB.net the NSFW Artwork's home</span></h1>
-            <h2 className="subtitle"><span>Welcome to the Future of NSFW Content</span></h2>
-            <p><span>NSFWHUB.net is the </span>
-              <span><strong>leading platform</strong></span>
-              <span> for high-quality </span>
-              <span><strong>NSFW artwork</strong></span>
-              <span>, featuring the most extensive and diverse collection of </span>
-              <span><strong>drawn and 3D-rendered adult images</strong></span>
-              <span> on the internet. Whether you're an enthusiast of </span>
-              <span><strong>digital erotica, fantasy illustrations, or ultra-detailed 3D models</strong></span>
-              <span>, we provide a seamless and private browsing experience designed for true connoisseurs.</span>
+            <h1 className="title dark:text-white text-black mb-12">NSFWHUB.net the NSFW Artwork's home</h1>
+            <h2 className="subtitle">Welcome to the Future of NSFW Content</h2>
+            <p>NSFWHUB.net is the new leading platform for high-qualityNSFW artwork, 
+              featuring the most extensive and diverse collection of drawn and 
+              3D-rendered adult images on the internet. Whether you're an 
+              enthusiast of digital erotica, fantasy illustrations, or ultra-detailed 3D 
+              models, we provide a seamless and private browsing experience designed 
+              for true connoisseurs.
             </p>
 
-            <h2 className="subtitle"><span>Unmatched Variety &amp; Diversity</span></h2>
-            <p>
-              <span>Our extensive </span>
-              <span><strong>gallery</strong></span>
-              <span> spans across multiple genres, themes, and styles, ensuring that every visitor finds something that suits their unique tastes. From </span>
-              <span><strong>anime-inspired illustrations to hyper-realistic 3D renders</strong></span>
-              <span>, NSFWHUB.net brings together artists and creators from all over the world, celebrating the beauty of artistic expression in all its forms. We proudly support </span>
-              <span><strong>diverse kinks, niche preferences, and unconventional aesthetics</strong></span>
-              <span>, making sure everyone feels represented and excited.</span></p>
+            <h2 className="subtitle">Unmatched Variety &amp; Diversity</h2>
+            <p>Find whatever you want to see in porn version here.
+              If it exists, there will be porn of it. From anime-inspired illustrations 
+              to hyper-realistic 3D renders, 
+              NSFWHUB.net brings together artists and creators from all over the world, 
+              celebrating the beauty of artistic expression in all its forms. We proudly 
+              support diverse kinks, niche preferences, and unconventional aesthetics, 
+              making sure everyone feels represented and excited.
+            </p>
+            
+            <h2 className="subtitle">The Largest NSFW Image Gallery on the Web</h2>
+            <p>With millions of high-resolution images, we house the most comprehensive 
+              collection of digital adult artwork. Our intuitive tagging system and smart search 
+              algorithms ensure that you can find precisely what you're looking for with minimal effort. 
+              Whether you crave cyberpunk fantasies, gothic aesthetics, or futuristic AI-generated 
+              erotica, it's all here at your fingertips.
+            </p>
               
-              <h2 className="subtitle"><span>The Largest NSFW Image Gallery on the Web</span></h2>
+            <h2 className="subtitle">Fast, Private & Easy to Use</h2>
+              <ul data-spread="false" className=" list-disc pl-4">
+                <li><p>Super Fast Loading: No lag, no waiting, just instant access.</p></li>
+                <li><p>Total Privacy: No annoying ads, no tracking, just pure browsing freedom.</p></li>
+                <li><p>Works on Any Device: Desktop, phone, tablet—whatever you’re using, it looks and runs smooth.</p></li>
+                <li><p>Save Your Favorites: No more losing that one pic you liked.</p></li>
+                <li><p>Community Vibes: See whats trending and join the conversation.</p></li>
+              </ul>
+                  
+              <h2 className="subtitle">Exclusive 3D & AI-Enhanced Art</h2>
               <p>
-                <span>With </span><span><strong>millions of high-resolution images</strong></span>
-                <span>, NSFWHUB.net houses the most </span>
-                <span><strong>comprehensive collection</strong></span>
-                <span> of digital adult artwork. Our intuitive </span>
-                <span><strong>tagging system</strong></span>
-                <span> and </span>
-                <span><strong>smart search algorithms</strong></span>
-                <span> ensure that you can find precisely what you're looking for with minimal effort. Whether you crave </span>
-                <span><strong>cyberpunk fantasies, gothic aesthetics, or futuristic AI-generated erotica</strong></span>
-                <span>, it's all here at your fingertips.</span></p><h2 className="subtitle"><span>A Seamless, Fast &amp; Private Browsing Experience</span>
+                NSFWHub isn’t just about 2D. We’ve got next-level 3D models and AI-enhanced 
+                artwork that push digital erotica to new heights. More detail, more realism, more wow.
+                No Pop-ups, No Sketchy Stuff—Just Art
+              </p>
                 
-                </h2>
-                  <ul data-spread="false"><li><p><span><strong>Lightning-Fast Performance</strong></span>
-                    <span> – Optimized servers ensure smooth and quick navigation, even for high-resolution media.</span></p></li>
-                    <li><p><span><strong>Robust Privacy</strong></span><span> – We prioritize </span><span><strong>user anonymity</strong></span>
-                    <span> with encrypted browsing and zero intrusive tracking.</span></p></li>
-                    <li><p><span><strong>Mobile-Friendly Design</strong></span>
-                    <span> – Fully responsive and </span><span><strong>easy to navigate</strong></span><span> on any device, from desktops to smartphones.</span></p></li>
-                    <li><p><span><strong>Bookmark &amp; Save Features</strong></span><span> – Easily organize and revisit your favorite galleries.</span></p></li>
-                    <li><p><span><strong>Community-Driven Ratings &amp; Reviews</strong></span><span> – Engage with other enthusiasts by leaving feedback and sharing recommendations.</span></p></li>
-                  </ul>
+              <h2 className="subtitle">Safe, Secure, and Always Accessible</h2>
+              <p>
+                We understand the importance of a safe and discreet 
+                browsing experience. We offer a clean, smooth experience 
+                where you can enjoy the art without distractions.
+                Join the Community & Start Browsing
+              </p>
+              
+                  <h2 className="subtitle">Join the Largest NSFW Art Community Today</h2>
                   
-                  <h2 className="subtitle"><span>Exclusive 3D Renders &amp; AI-Generated NSFW Content</span></h2>
-                  <p>
-                    <span>NSFWHUB.net pushes the boundaries of digital erotica by offering exclusive </span>
-                    <span><strong>3D-modeled adult content</strong></span><span> and </span><span><strong>AI-enhanced creations</strong></span>
-                    <span>. Our </span><span><strong>cutting-edge AI technology</strong></span><span> refines every image to ensure </span>
-                    <span><strong>unmatched realism, detail, and artistic perfection</strong></span><span>. As digital artistry continues to evolve, our platform remains at the forefront, bringing you the latest advancements in </span>
-                    <span><strong>adult digital media</strong></span><span>.</span>
-                  </p>
-                    
-                  <h2 className="subtitle"><span>Safe, Secure, and Always Accessible</span></h2>
-                  <p>
-                    <span>We understand the importance of a </span>
-                    <span><strong>safe</strong></span><span> and </span>
-                    <span><strong>discreet</strong></span><span> browsing experience. NSFWHUB.net guarantees </span>
-                    <span>navigation with </span>
-                    <span><strong>no pop-ups</strong></span><span> or annoying distractions. Your data and preferences remain completely private, ensuring a worry-free journey into the world of NSFW digital art.</span>
+                  <p>Become part of a thriving community that values high-quality 
+                    NSFW artwork, respectful engagement, and artistic appreciation. 
+                    Whether you're here to explore, collect, or create, NSFWHUB.net 
+                    is the ultimate hub for digital adult content.
                   </p>
                   
-                  <h2 className="subtitle"><span>Join the Largest NSFW Art Community Today</span></h2>
-                  
-                  <p><span>Become part of a </span>
-                    <span><strong>thriving community</strong></span>
-                    <span> that values high-quality </span>
-                    <span><strong>NSFW artwork</strong></span>
-                    <span>, respectful engagement, and artistic appreciation. Whether you're here to explore, collect, or create, NSFWHUB.net is the ultimate hub for digital adult content.</span>
-                  </p>
-                  
-                  <p><span><strong>Start browsing today and unlock a new dimension of NSFW creativity!</strong></span></p><p>
+                  <p>Start browsing now and unlock a new dimension of NSFW creativity!</p><p>
               </p>
 
           </div>
