@@ -1,105 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página inicial -->
   <url>
-    <loc>https://nfswhub.net/</loc>
+    <loc>https://nsfwhub.net/</loc>
     <priority>1.0</priority>
   </url>
 
-
+  <!-- Páginas de busca com tags geek e termos genéricos -->
   <url>
-    <loc>https://nfswhub.net/search/?q=anime</loc>
+    <loc>https://nsfwhub.net/search/?q=anime</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=cosplay</loc>
+    <loc>https://nsfwhub.net/search/?q=cosplay</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=harley_quinn</loc>
+    <loc>https://nsfwhub.net/search/?q=harley_quinn</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=lara_croft</loc>
+    <loc>https://nsfwhub.net/search/?q=lara_croft</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=sakura</loc>
+    <loc>https://nsfwhub.net/search/?q=sakura</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=ayase_momo</loc>
+    <loc>https://nsfwhub.net/search/?q=ayase_momo</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=yorha_2b</loc>
+    <loc>https://nsfwhub.net/search/?q=yorha_2b</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=overwatch</loc>
+    <loc>https://nsfwhub.net/search/?q=overwatch</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=final_fantasy</loc>
+    <loc>https://nsfwhub.net/search/?q=final_fantasy</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=Ben_10</loc>
+    <loc>https://nsfwhub.net/search/?q=Ben_10</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=harry_potter</loc>
+    <loc>https://nsfwhub.net/search/?q=harry_potter</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=game_of_thrones</loc>
+    <loc>https://nsfwhub.net/search/?q=game_of_thrones</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=marvel</loc>
+    <loc>https://nsfwhub.net/search/?q=marvel</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=dc_comics</loc>
+    <loc>https://nsfwhub.net/search/?q=dc_comics</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=violet_parr</loc>
+    <loc>https://nsfwhub.net/search/?q=violet_parr</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=tentacle</loc>
+    <loc>https://nsfwhub.net/search/?q=tentacle</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=elf</loc>
+    <loc>https://nsfwhub.net/search/?q=elf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=monster_girl</loc>
+    <loc>https://nsfwhub.net/search/?q=monster_girl</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=anal</loc>
+    <loc>https://nsfwhub.net/search/?q=anal</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=threesome</loc>
+    <loc>https://nsfwhub.net/search/?q=threesome</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=bdsm</loc>
+    <loc>https://nsfwhub.net/search/?q=bdsm</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=futanari</loc>
+    <loc>https://nsfwhub.net/search/?q=futanari</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=yaoi</loc>
+    <loc>https://nsfwhub.net/search/?q=yaoi</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nfswhub.net/search/?q=yuri</loc>
+    <loc>https://nsfwhub.net/search/?q=yuri</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nsfwhub.net/search/?q=bulma</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
