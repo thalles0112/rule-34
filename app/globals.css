@@ -23,8 +23,11 @@
 }
 
 *{
-  transition: 0.4s;
   scroll-behavior: smooth;
+}
+
+button, img{
+  transition: 0.4s;
 }
 
 .accent-color{

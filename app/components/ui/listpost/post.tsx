@@ -17,8 +17,8 @@ export default function Post({post}:{post:post}){
                     src={post.file_url}
                     placeholderSrc={post.preview_url}
                     alt={post.title || post.tags}
-                    width="1920"
-                    height="1080"
+                    width={post.width}
+                    height={post.height}
                     
                   />
                 <figcaption className="absolute bottom-0 w-full p-4">

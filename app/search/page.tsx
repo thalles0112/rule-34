@@ -30,16 +30,17 @@ type Props = {
 
     if(data){
       return {
-        title: `Images tagged with ${readyToTitle}`,
+        title: `NSFW Hub | Images tagged ${readyToTitle}`,
         description: `Explore a growing gallery of hot images tagged with ${readyToTitle} at NSFWHub.net 
                       Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
                       If it exists, there's porn of it`,
+        keywords: data.tags,
         twitter:{
-          title: `Images tagged with ${readyToTitle}`,
+          title: `NSFW Hub | Images tagged ${readyToTitle}`,
           images: [data.preview_url?data.preview_url:'img/anime.png.']
         },
         openGraph:{
-          title: `Images tagged with ${readyToTitle}`,
+          title: `NSFW Hub | Images tagged ${readyToTitle}`,
           description: `Explore a growing gallery of hot images tagged with ${readyToTitle} at NSFWHub.net 
                       Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
                       If it exists, there's porn of it`,
@@ -55,7 +56,7 @@ type Props = {
 
     else{
       return {
-        title: `Images tagged ${readyToTitle}`,
+        title: `NSFW Hub | Images tagged ${readyToTitle}`,
         description: `Explore a growing gallery of hot images tagged with ${readyToTitle} at NSFWHub.net 
                       Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
                       If it exists, there's porn of it`,
@@ -65,11 +66,11 @@ type Props = {
           rating: 'RTA-5042-1996-1400-1577-RTA',
         },
         twitter:{
-          title: `Images tagged ${readyToTitle}`,
+          title: `NSFW Hub | Images tagged ${readyToTitle}`,
           images: ['img/anime.png.']
         },
         openGraph:{
-          title: `Images tagged ${readyToTitle}`,
+          title: `NSFW Hub | Images tagged ${readyToTitle}`,
           description: `Explore a growing gallery of hot images tagged with ${readyToTitle} at NSFWHub.net 
                       Here you can find the biggest variety of the hottest XXX posts containing on the internet. 
                       If it exists, there's porn of it`,
@@ -102,7 +103,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
     return (
         <div className="page-config" data-scroll-restoration-id="search">
           
-                  <link rel="icon" href="/favicon.ico" sizes="any"/>
+                  
           <Header/>
           
 

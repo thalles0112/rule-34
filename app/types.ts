@@ -15,7 +15,9 @@ export type post = {
     preview_url: string,
     comment_count:number,
     score:number,
-    owner: string
+    owner: string,
+    width: number,
+    height: number
 }
 
 

@@ -31,7 +31,7 @@ export default function Footer(){
                 <section className='category'>
                     <img width={200} height={200} className='max-w-20' alt='site logo' src={'/img/sitelogo.png'}/>
                     <div className='flex gap-2 justify-center'>
-                    <a href='https://x.com/nsfwhub_net' target='_blank'>
+                    <a aria-label='Visit NSFW Hub Twitter (x.com)' href='https://x.com/nsfwhub_net' target='_blank'>
                         <IoLogoTwitter/>          
                     </a>
                     

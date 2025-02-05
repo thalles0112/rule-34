@@ -13,10 +13,10 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <figure>
             <img
             src={categories[0].imageUrl}
-            alt={categories[0].name}
+            alt={"Explore "+categories[0].name+" tagged posts"}
             width={categories[0].imageWidth}
             height={categories[0].imageHeight}
-            loading="lazy"
+            
             className="max-h-full max-w-full object-contain"
             />
             <figcaption className="categoria-nome">{categories[0].name}</figcaption>
@@ -29,10 +29,10 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
         <figure className="flex justify-center items-center">
             <img
             src={categories[1].imageUrl}
-            alt={categories[1].name}
+            alt={"Explore "+categories[1].name+" tagged posts"}
             width={categories[1].imageWidth}
             height={categories[2].imageHeight}
-            loading="lazy"
+            
             className="max-h-full max-w-full object-contain"
             />
             <figcaption className="categoria-nome">{categories[1].name}</figcaption>
@@ -47,10 +47,10 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
             <figure>
                 <img
                 src={categories[2].imageUrl}
-                alt={categories[2].name}
+                alt={"Explore "+categories[2].name+" tagged posts"}
                 width={categories[2].imageWidth}
                 height={categories[2].imageHeight}
-                loading="lazy"
+                
                 />
                 <figcaption className="categoria-nome">{categories[2].name}</figcaption>
             </figure>
@@ -61,10 +61,10 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
             <figure>
                 <img
                 src={categories[3].imageUrl}
-                alt={categories[3].name}
+                alt={"Explore "+categories[3].name+" tagged posts"}
                 width={categories[3].imageWidth}
                 height={categories[3].imageHeight}
-                loading="lazy"
+                
                 />
                 <figcaption className="categoria-nome">{categories[3].name}</figcaption>
             </figure>
@@ -75,10 +75,10 @@ export default function FeaturedCategories({categories}:{categories:featuredCate
             <figure>
                 <img
                 src={categories[4].imageUrl}
-                alt={categories[4].name}
+                alt={"Explore "+categories[4].name+" tagged posts"}
                 width={categories[4].imageWidth}
                 height={categories[4].imageHeight}
-                loading="lazy"
+                
                 />
                 <figcaption className="categoria-nome">{categories[4].name}</figcaption>
             </figure>

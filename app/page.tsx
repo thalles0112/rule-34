@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 
 
 export const metadata: Metadata = {
-  title: "NSFW Hub",
+  title: "Home | NSFW Hub",
   description: "🔥 Dive into the ultimate collection of free adult content! Rule 34, insane hentai, cartoon XXX, sizzling hot images, and whatever your fantasies crave—all in one place! 😈💦",
   applicationName: 'NSFW Hub',
   other:{
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
 
 
 export default async function Home() {
-  let imageUrl = '/img/hugeass.jpeg'
-  //imageUrl = '/img/super-choque.jpg'
+  let imageUrl = '/img/hugeass.webpg'
+  //imageUrl = '/img/super-choquewebpg'
 
 
 
@@ -51,8 +51,8 @@ export default async function Home() {
   /*
   let posts:post[] =  [
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -64,8 +64,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -77,8 +77,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -90,8 +90,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -103,8 +103,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -116,8 +116,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -129,8 +129,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -142,8 +142,8 @@ export default async function Home() {
       authorpicture: '/img/profile.jpeg'
     },
     {
-      imageUrl: imageUrl,
-      previewImageUrl:  imageUrl,
+      imageUrl: imagwebpl,
+      previewImageUrl:  imagwebpl,
       title: 'super choque',
       tags: 'umatag,outratag,maisoutratag',
       saves:3,
@@ -163,35 +163,35 @@ export default async function Home() {
   const categories: featuredCategory[] = [
     {
       name: 'Juicy ass',
-      imageUrl: '/img/juicy-ass.jpg',
+      imageUrl: '/img/juicy-ass.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=juicy_ass'
     },
     {
       name: 'Cute',
-      imageUrl: '/img/2d.png',
+      imageUrl: '/img/2d.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=cute score:>100'
     },
     {
       name: 'Anal',
-      imageUrl: '/img/anal.png',
+      imageUrl: '/img/anal.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=anal'
     },
     {
       name: '2B',
-      imageUrl: '/img/2b.png',
+      imageUrl: '/img/2b.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=yorha_2b score:>100'
     },
     {
       name: 'Anime',
-      imageUrl: '/img/anime.png',
+      imageUrl: '/img/anime.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=anime'
