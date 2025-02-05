@@ -42,7 +42,7 @@ export default async function Home() {
 
 
 
-  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=score:>100 anime&limit=40&pid=1&json=1')
+  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=score:>50 anime&limit=20&pid=1&json=1')
   let posts = resp.data
 
 
@@ -164,13 +164,13 @@ export default async function Home() {
     {
       name: 'Juicy ass',
       imageUrl: '/img/juicy-ass.webp',
-      imageWidth: 397,
-      imageHeight: 256,
+      imageWidth: 668,
+      imageHeight: 429,
       url: '/search/?q=juicy_ass'
     },
     {
       name: 'Cute',
-      imageUrl: '/img/2d.webp',
+      imageUrl: '/img/cute.webp',
       imageWidth: 397,
       imageHeight: 256,
       url: '/search/?q=cute score:>100'

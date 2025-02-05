@@ -27,7 +27,7 @@ export default function Post({post}:{post:post}){
                       {
                         post.author && post.author.picture
                         ?<img width={40} height={40} alt={post.author.name} src={post.authorpicture || '/img/profile.jpeg'}/>
-                        :<IoPersonOutline size={20}/>
+                        :<IoPersonOutline size={icon_size}/>
                       }
                       
                     </div>
