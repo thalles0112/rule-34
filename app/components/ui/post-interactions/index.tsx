@@ -101,12 +101,12 @@ export default function PostInteractions({post}:{post:fullPost}){
         <section className="lg:w-5/12 md:w-6/12 max-sm:w-full max-h-full mt-10">
             <div className='flex items-center gap-2 mb-2'>
                 <div className='relative flex items-center'>
-                    <button onClick={()=>{setShowFolders(!showFolders)}}>{!saved?<IoBookmarkOutline size={20}/>:<IoBookmark size={20}/>} </button>
+                    <button onClick={()=>{setShowFolders(!showFolders)}}>{!saved?<IoBookmarkOutline size={20}/>:<IoBookmark className='accent-color' size={20}/>} </button>
                     <FolderModalSelector onSelect={savePost} visible={showFolders} handleHide={hideFolderSelector}/>
                 </div>
                 
-                    <button onClick={handleLike}>{liked?<AiFillLike size={20}/>:<AiOutlineLike size={20}/>}</button>
-                    <button onClick={handleFavorite}>{favorited?<IoHeart size={20}/>:<IoHeartOutline size={20}/>}</button>
+                    <button onClick={handleLike}>{liked?<AiFillLike className='accent-color' size={20}/>:<AiOutlineLike size={20}/>}</button>
+                    <button onClick={handleFavorite}>{favorited?<IoHeart className='accent-color' size={20}/>:<IoHeartOutline size={20}/>}</button>
                 
             </div>
             
@@ -125,7 +125,7 @@ export default function PostInteractions({post}:{post:fullPost}){
                             <h2 className="text-sm font-bold">{post.author.name || post.owner}</h2>
                         </Link>
                         <button onClick={()=>setFollowing(!following)} 
-                                className={`p-1 rounded-md text-sm border w-24 ${following?'bg-blue-500 text-white':'Follow'}`}>
+                                className={`p-1 rounded-md text-sm border w-24 ${following?'accent-color text-white':'Follow'}`}>
                                     {following?'Following':'Follow'}
                         </button>
                         <span className='text-sm'>{post.author.subscriptions}</span>

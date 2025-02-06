@@ -1,14 +1,13 @@
 'use client'
-import Header from "@/app/components/ui/header/header"
 import { FormEvent, useEffect, useState, useRef } from "react"
-import type { folder } from "../../types"
+import type { folder } from "../../../../types"
 import { produce } from "immer"
 import Link from "next/link"
-import Footer from "../../components/ui/footer"
+
 import { IoFolder } from "react-icons/io5"
 import CustomImage from "@/app/components/ui/Image"
 
-export default function Account(){
+export default function Folders(){
     const [creatingFolder, setCreatingFolder] = useState(false)
     const [folders, setFolders] = useState<folder[]>([])
     const formRef = useRef<HTMLFormElement>(null)
@@ -84,17 +83,13 @@ export default function Account(){
     
 
     return (
-        <div className="page-config">
-            <title>Account | NSFW HUB</title>
-            <Header/>
-            <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8 page-config--header">
-                <h2 className="text-center w-full mt-10">Sign in & Sign up not working yet :( but still you can save some posts locally creating a folder and adding posts to it.</h2>
+       
                 <div className="w-full max-w-full h-fit flex flex-wrap items-center gap-2">
                 
                 {
                     folders && folders.map((folder,idx)=>{
                         return(
-                            <Link className="h-fit" key={folder.id}  href={`/account/folders/${folder.id}`}>
+                            <Link  className="h-fit" key={idx}  href={`/account/folders/${folder.id}`}>
                             <div className="flex flex-wrap  w-40 h-40 rounded-md m-1 justify-start">
                                 {folder.items.length?
                                 folder.items.slice(0,4).map((item, idx)=>{
@@ -106,7 +101,7 @@ export default function Account(){
                                         
                                     )
                             })
-                            : <div className="flex flex-wrap shadow-md rounded dark:bg-slate-900 w-40 h-40 m-1 justify-center items-center gap-2 hover:text-lg">
+                            : <div className="flex flex-wrap shadow-md rounded dark:bg-slate-900 w-40 h-40 m-1 justify-center items-center gap-2 hover:font-bold">
                                 <IoFolder color="purple"/> {folder.name}
                             </div>
                                 
@@ -134,9 +129,6 @@ export default function Account(){
 
                 <button className="border h-fit p-2 rounded-md" onClick={()=>{setCreatingFolder(!creatingFolder)}}>create folder</button>
                 </div>
-            </main>
-
-            <Footer/>
-        </div>
+      
     )
 }

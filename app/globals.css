@@ -55,6 +55,15 @@ button, img{
   color: var(--main-color)
 }
 
+.border-main-color{
+  border-color: var(--main-color)
+}
+
+.bg-main-color{
+  background-color: var(--main-color)
+}
+
+
 body {
   color: var(--foreground);
   height: 100vh;

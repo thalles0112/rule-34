@@ -11,3 +11,15 @@ export default function ListPosts({posts}:{posts:any[]}){
       </ul>
     )
 }
+
+
+
+export  function ListPostsFlex({posts}:{posts:any[]}){
+    return(
+        <ul className="post-flex">
+        {posts && posts.map((post, index) => (
+          <Post key={index} post={post}/>
+        ))}
+      </ul>
+    )
+}

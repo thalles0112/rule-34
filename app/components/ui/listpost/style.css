@@ -4,12 +4,13 @@
 }
 
 
-
 @media only screen and (max-width: 340px){
     .post-grid{
         grid-template-columns: repeat(1, var(--post-card-width));
     }
 }
+
+
 
 @media only screen and (min-width: 600px){
     .post-grid{
@@ -22,6 +23,7 @@
     .post-grid{
         grid-template-columns: repeat(3, var(--post-card-width));
     }
+
 }
 
 
@@ -35,6 +37,7 @@
     .post-grid{
         grid-template-columns: repeat(5, var(--post-card-width));
     }
+    
 }
 
 .post-item{
