@@ -24,7 +24,7 @@ export default function Comment({comment}:{comment:comment}){
         <li className="flex items-start gap-2 p-1 my-1  rounded-md w-full">
             <div className="rounded-full overflow-hidden flex justify-center items-center bg-black bg-opacity-40 p-1 h-6 w-6">
                 {
-                    comment.userpicture
+                    comment.userpicture != ""
                     ?<img src={comment.userpicture} className="w-full h-full object-cover"/>
                     :<IoPersonOutline/>
                 }
