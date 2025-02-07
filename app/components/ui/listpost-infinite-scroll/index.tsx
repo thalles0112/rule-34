@@ -64,8 +64,8 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
                 const nextState = produce(posts, draft=>{
                     draft.push(...newPosts)
                 })
-                const withAds = injectAd(nextState)
-                setPosts([...nextState, ...withAds])
+                
+                setPosts(nextState)
                 setPage(prev => prev + 1);
             }
         } catch (error) {
@@ -98,17 +98,7 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
     }, [hasMore, loading]); // Dependendo dos posts, evita problema do ref não estar pronto
 
 
-    const injectAd = (posts: post[]) =>{
-        return posts.flatMap((post, index)=>{
-            const shouldInsertAd = Math.random() < 0.3
-            if (shouldInsertAd){
-                return [post, {id: `ad-${post.id}`}]
-            }
-            return [post]
-        }
-        
-    )
-    }
+
     
 
     return (
