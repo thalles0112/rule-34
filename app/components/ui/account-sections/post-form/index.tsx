@@ -27,7 +27,7 @@ export default function PostForm() {
   
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: {'video/mp4':['mp4'], 'image/jpg':['jpg', 'png', 'jpeg', 'webp']},
+    accept: {'video':['mp4'], 'image':['jpg', 'png', 'jpeg', 'webp']},
     maxFiles: 1,
   });
 
@@ -60,13 +60,13 @@ export default function PostForm() {
   };
   
   return (
-    <form onSubmit={handleSubmit} className="flex space-x-4 max-w-full mx-auto p-4 rounded-lg shadow">
+    <form onSubmit={handleSubmit} className="flex md:flex-row max-md:flex-col max-md:space-y-4 space-x-4 max-w-full mx-auto p-4 rounded-lg shadow">
        <div className="p-4 border-dashed border-2 rounded cursor-pointer" {...getRootProps()}>
         <input {...getInputProps()} />
-        {formData.file ? <img className="max-h-96" src={URL.createObjectURL(formData.file)}/> : <p>Drag & drop an image or video, or click to select</p>}
+        {formData.file ? <img className="max-h-96 mx-auto" src={URL.createObjectURL(formData.file)}/> : <p>Drag & drop an image or video, or click to select</p>}
       </div>
       
-      <div className="space-y-4 flex flex-col">
+      <div className="space-y-4 flex md:w-4/12 flex-col">
         <input
             type="text"
             placeholder="Post Title"
@@ -79,7 +79,7 @@ export default function PostForm() {
         
         <input
             type="text"
-            placeholder="Add tags and press Enter"
+            placeholder="Add tag and press Enter"
             onKeyDown={(e)=>handleTagKeyDown(e)}
             className="w-full p-2 border bg-transparent rounded outline-none"
         />

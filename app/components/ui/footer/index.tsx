@@ -16,7 +16,6 @@ export default function Footer(){
             'Terms of service',
         ],
         [
-            'Careers',
             'Privacy Policy',
             'Copyright Policy',
             'Help Center'

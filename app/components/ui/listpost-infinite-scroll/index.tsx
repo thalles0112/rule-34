@@ -6,6 +6,7 @@ import Post from "./post";
 import "./style.css";
 import { produce } from "immer";
 import { IoReloadOutline } from "react-icons/io5";
+import { post } from "@/app/types";
 
 export default function ListPosts({ search, initialPosts }: { search: string; initialPosts: any[] }) {
     const [posts, setPosts] = useState<any[]>(initialPosts);
@@ -63,7 +64,8 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
                 const nextState = produce(posts, draft=>{
                     draft.push(...newPosts)
                 })
-                setPosts(nextState)
+                const withAds = injectAd(nextState)
+                setPosts([...nextState, ...withAds])
                 setPage(prev => prev + 1);
             }
         } catch (error) {
@@ -93,13 +95,30 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
         });
 
         if (lastPostRef.current) observer.current.observe(lastPostRef.current);
-    }, [hasMore, loading]); // ✅ Dependendo dos posts, evita problema do ref não estar pronto
+    }, [hasMore, loading]); // Dependendo dos posts, evita problema do ref não estar pronto
+
+
+    const injectAd = (posts: post[]) =>{
+        return posts.flatMap((post, index)=>{
+            const shouldInsertAd = Math.random() < 0.3
+            if (shouldInsertAd){
+                return [post, {id: `ad-${post.id}`}]
+            }
+            return [post]
+        }
+        
+    )
+    }
+    
 
     return (
         <ul className="post-grid">
             {posts.map((post, index) => (
-                <Post key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
+                <Post ad={post.id.toString().includes('ad')} key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
             ))}
+
+
+
             
             <div className="w-full h-8">
               <div className="w-8 h-8 mx-auto">        

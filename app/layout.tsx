@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ScrollRestoration } from "next-scroll-restoration";
-
+import { Analytics } from "@vercel/analytics/react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -56,7 +56,7 @@ export default function RootLayout({
         <ScrollRestoration/>
           
         
-
+      <Analytics/>
       </body>
       
     </html>

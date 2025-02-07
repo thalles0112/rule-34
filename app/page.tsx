@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
 
-  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=score:>50 anime&limit=20&pid=1&json=1')
+  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=anime&limit=20&pid=1&json=1')
   let posts = resp.data
 
 

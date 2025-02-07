@@ -90,7 +90,7 @@ export default function Folders(){
                     folders && folders.map((folder,idx)=>{
                         return(
                             <Link  className="h-fit" key={idx}  href={`/account/folders/${folder.id}`}>
-                            <div className="flex flex-wrap  w-40 h-40 rounded-md m-1 justify-start">
+                            <div className="flex flex-wrap  w-40 h-40 rounded-md justify-start">
                                 {folder.items.length?
                                 folder.items.slice(0,4).map((item, idx)=>{
                                     return(
@@ -101,7 +101,7 @@ export default function Folders(){
                                         
                                     )
                             })
-                            : <div className="flex flex-wrap shadow-md rounded dark:bg-slate-900 w-40 h-40 m-1 justify-center items-center gap-2 hover:font-bold">
+                            : <div className="flex flex-wrap shadow-md rounded dark:bg-slate-900 w-40 h-40 justify-center items-center gap-2 hover:font-bold">
                                 <IoFolder color="purple"/> {folder.name}
                             </div>
                                 

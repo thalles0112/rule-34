@@ -5,13 +5,15 @@ import { forwardRef } from "react";
 import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPersonOutline } from 'react-icons/io5'
 import CustomImage from "../Image";
 import { AiOutlineLike } from 'react-icons/ai'
+import AdComponent from "../../services/adloader";
 
-const Post = forwardRef(({post}:{post:post}, ref) =>{
+const Post = forwardRef(({post, ad}:{post:post, ad:boolean}, ref) =>{
     const icon_size = 18
     return(
 
       <li ref={ref as any} className="post-item rounded-md overflow-hidden relative max-sm:w-full">
-      <Link href={post.url || `/p/${post.id}`}>
+      {
+        !ad?<Link href={post.url || `/p/${post.id}`}>
         <article className="w-full h-full">
           <figure className="h-full w-full">
             <CustomImage
@@ -65,6 +67,9 @@ const Post = forwardRef(({post}:{post:post}, ref) =>{
           </figure>
        </article>
        </Link>
+        :<AdComponent type="skycraper"/>
+      }
+      
       </li>
           
     )

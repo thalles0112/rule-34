@@ -7,6 +7,7 @@ import PostForm from "./post-form";
 import FolderPage from "@/app/account/folders/[id]/page";
 import Folders from "./folders";
 import { post } from "@/app/types";
+import Settings from "./settings";
 
 const tabs = [
   { id: "my_posts", label: "My Posts" },
@@ -42,7 +43,7 @@ function Sections({posts}:{posts:post[]}) {
         {activeTab === "my_posts" && <ListPosts posts={posts} />}
         {activeTab === "create" && <PostForm/>}
         {activeTab === "folders" && <Folders/>}
-        {activeTab === "settings" && <div>Account settings...</div>}
+        {activeTab === "settings" && <Settings/>}
       </div>
     </div>
   );
