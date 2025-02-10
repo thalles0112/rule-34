@@ -52,20 +52,30 @@ export default async function Account() {
   
   const access = (await cookies()).get('access')?.value
 
-  async function getUserData(): Promise<{ user: user, author: author }> {
-  
+  async function getUserData() {
+    try{
       const response = await axios.get<{author:author, user:user}>(`${process.env.BACKEND_URL}/api/user`, {
         headers: { Authorization: `Bearer ${access}` },
       });
+
+      if(!response.data){
+        isAuthenticated = false
+      }
     
       const data:{user:user, author:author} = response.data
         return data
+    }
+    catch(e){
+      isAuthenticated = false
+
+    }
+      
     }
     
 
 
   
-  const userData:{'author':author, user:user} = await getUserData()
+  const userData = await getUserData()
   
   
   
@@ -73,6 +83,7 @@ export default async function Account() {
   
   
   function formatSubscribers() {
+    if(userData){
     if(userData.author){
       if (userData.author.subscribers.length < 1000) return userData.author.subscribers.length.toString();
       if (userData.author.subscribers.length < 1000000)
@@ -81,6 +92,7 @@ export default async function Account() {
         .toFixed(1)
         .replace(/\.0$/, "") + "mi";
     }
+  }
     
   }
 
@@ -99,7 +111,7 @@ export default async function Account() {
             <section className="flex justify-center items-center h-40 relative">
               <img
                 className="max-h-full rounded-md overflow-hidden object-cover w-full"
-                src={userData.author.banner?userData.author.banner:"/img/anime.webp"}
+                src={userData && userData.author.banner?userData.author.banner:"/img/anime.webp"}
               />
 
               <div
@@ -107,7 +119,7 @@ export default async function Account() {
                                     justify-center items-center overflow-hidden 
                                     bg-white shadow-md absolute z-10 left-10 -bottom-10"
               >
-                {userData.author && userData.author.picture ? (
+                {userData && userData.author && userData.author.picture ? (
                   <img
                     className="min-h-full w-full object-cover"
                     width={40}
@@ -121,7 +133,7 @@ export default async function Account() {
               </div>
             </section>
             <div className="mt-10">
-              <span>{userData.user&&userData.user.username?userData.user.username:''}</span> -{" "}
+              <span>{userData && userData.user&&userData.user.username?userData.user.username:''}</span> -{" "}
               <span>{formatSubscribers()} Subscribers</span>
             </div>
             <AccountSections posts={data} />

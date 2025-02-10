@@ -28,6 +28,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
     function handleMobileSearch(e: FormEvent) {
         e.preventDefault()
+        
         if (mobileSearchOpen && searchParam.length == 0) {
             setMobileSearchOpen(false)
         } else if (mobileSearchOpen && searchParam.length > 0) {
@@ -126,7 +127,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
             <div className="flex items-center justify-between gap-2">
                 <form onSubmit={(e) => handleMobileSearch(e)} id='mobile-search' className={`${mobileSearchOpen ? 'max-sm:border' : ''} w-8/12 ml-auto h-10 rounded-md flex overflow-hidden`}>
-                    <input ref={mobileInput} value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full -translate-x-0 opacity-100' : 'w-0 translate-x-full opacity-0'} transition duration-100 sm:hidden text-sm text-gray-600`} placeholder="Search" />
+                    <input ref={mobileInput} value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full -translate-x-0 opacity-100' : 'w-0 translate-x-full opacity-0 -z-10'} transition duration-100 sm:hidden text-sm text-gray-600`} placeholder="Search" />
                     <button id="search-button" aria-label="search" title="search" name="search" onClick={(e) => handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen ? 'border rounded-md' : 'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
                         <IoSearchOutline size={18} />
                     </button>
