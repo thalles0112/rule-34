@@ -3,7 +3,6 @@ import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"
 import { FormEvent, useEffect, useState, useRef } from "react"
-import api from "../../services/backend";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
