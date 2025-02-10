@@ -10,14 +10,13 @@ export type post = {
     title: string,
     url: string,
     author: author,
-    authorpicture: string,
     file_url: string,
     preview_url: string,
     comment_count:number,
     score:number,
-    owner: string,
     width: number,
     height: number
+    user: user
 }
 
 
@@ -68,6 +67,7 @@ export type fullPost = {
     liked: boolean,
     saved: boolean,
     favorited: boolean,
+    user: user,
 
     owner: string,
     file_url:string,

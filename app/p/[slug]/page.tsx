@@ -69,6 +69,11 @@ export default async function PostPage({params, searchParams}: PageProps){
       likes: 1,
       saves: 1,
       favorites: 1,
+      user: {
+        email:'',
+        id: 0,
+        username: ''
+      },
       comments: [
         
         
@@ -76,11 +81,12 @@ export default async function PostPage({params, searchParams}: PageProps){
       title: '',
       url: '',
       author: {
-        name: '',
         id: 1,
         url: '',
-        subscriptions: 1,
-        picture: ''
+        subscribers: [],
+        picture: '',
+        banner: '',
+        user: 0
       },
       authorpicture: '',
       createdAt: '',

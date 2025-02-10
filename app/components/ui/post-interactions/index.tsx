@@ -122,13 +122,13 @@ export default function PostInteractions({post}:{post:fullPost}){
                       
                       <div className="flex gap-4 w-fit items-center">
                         <Link href={post.author.url}>
-                            <h2 className="text-sm font-bold">{post.author.name || post.owner}</h2>
+                            <h2 className="text-sm font-bold">{post.user.username || post.owner}</h2>
                         </Link>
                         <button onClick={()=>setFollowing(!following)} 
                                 className={`p-1 rounded-md text-sm border w-24 ${following?'accent-color text-white':'Follow'}`}>
                                     {following?'Following':'Follow'}
                         </button>
-                        <span className='text-sm'>{post.author.subscriptions}</span>
+                        <span className='text-sm'>{post.author.subscribers.length}</span>
                       </div>
 
                       

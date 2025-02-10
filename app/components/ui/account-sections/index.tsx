@@ -27,7 +27,7 @@ function Sections({posts}:{posts:post[]}) {
           banner:'',
           id:0, 
           picture:'',
-          subscribers: 0,
+          subscribers: [],
           url: '',
           user: 0
       }})

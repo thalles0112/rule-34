@@ -1,7 +1,6 @@
 import Header from "@/app/components/ui/header/header";
 import Footer from "../components/ui/footer";
 import LoginForm from "../components/ui/login-form";
-import Link from "next/link";
 import { author, post, user } from "../types";
 import { IoPersonOutline } from "react-icons/io5";
 import type { Metadata } from "next";
@@ -53,28 +52,25 @@ export default async function Account() {
   
   const access = (await cookies()).get('access')?.value
 
-  async function getUserData(){
-    try{
+  async function getUserData(): Promise<{ user: user, author: author }> {
+  
       const response = await axios.get<{author:author, user:user}>(`${process.env.BACKEND_URL}/api/user`, {
         headers: { Authorization: `Bearer ${access}` },
       });
     
-      const data = response.data
-      if(data.author){
-  
+      const data:{user:user, author:author} = response.data
         return data
-      }
-    }
-    catch(e){
-      isAuthenticated = false
     }
     
-    
-    
-  }
 
+
+  
   const userData:{'author':author, user:user} = await getUserData()
-  console.log(userData)
+  
+  
+  
+  
+  
   
   function formatSubscribers() {
     if(userData.author){
