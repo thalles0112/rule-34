@@ -35,7 +35,7 @@ const Post = forwardRef(({post, ad}:{post:post, ad:boolean}, ref) =>{
                   
                 </div>
                 <div>
-                  <label className="post-author font-semibold text-white">{post.author && post.user.username? post.user.username:'Rule 34 Artist'}</label>
+                  <label className="post-author font-semibold text-white">{post.user && post.user.username? post.user.username:'Rule 34 Artist'}</label>
                 </div>
               </div>
               <h2 className="post-title text-xl font-bold text-white">{post.title}</h2>
