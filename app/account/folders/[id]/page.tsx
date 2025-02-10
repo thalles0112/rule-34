@@ -48,7 +48,7 @@ export default function FolderPage(){
                 <h1 className="text-xl font-bold mt-10">{posts?posts.name:''}</h1>
                 <div>{folders?.map((f,idx)=>{
                     return(
-                        <button onClick={()=>{deleteFolder(idx)}} className={f.id==id?'':'hidden'}>Delete Folder</button>
+                        <button key={idx} onClick={()=>{deleteFolder(idx)}} className={f.id==id?'':'hidden'}>Delete Folder</button>
                     )
                 })}</div>
                 <ListPosts posts={posts?posts.items:[]}/>
