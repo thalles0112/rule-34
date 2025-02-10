@@ -72,10 +72,10 @@ export default async function Account() {
     <div className="page-config" data-scroll-restoration-id="account">
       <Header />
 
-      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
+      <main className="lg:px-24  flex flex-col ">
         {isAuthenticated ? (
           // Exibir painel de conta se estiver autenticado
-          <>
+          <div className="max-sm:px-4">
             <section className="flex justify-center items-center h-40 relative">
               <img
                 className="max-h-full rounded-md overflow-hidden object-cover w-full"
@@ -100,12 +100,12 @@ export default async function Account() {
                 )}
               </div>
             </section>
-            <div className="mt-4">
+            <div className="mt-10">
               <span>{author.name}</span> -{" "}
               <span>{formatSubscribers()} Subscribers</span>
             </div>
             <AccountSections posts={data} />
-          </>
+          </div>
         ) : (
           // Exibir formulário de login se não estiver autenticado
           <LoginForm />

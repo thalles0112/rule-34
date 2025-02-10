@@ -50,7 +50,7 @@ const RegisterForm: React.FC<CustomFormProps> = ({ className, ...props }) => {
         
     }
   return (
-      <form ref={formRef} {...props} className="mt-10 max-sm:w-11/12 dark:bg-gray-900 rounded-md w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
+      <form ref={formRef} {...props} className="mt-10 max-sm:w-11/12 rounded-md w-fit mx-auto p-10 gap-y-4 flex flex-col items-center" onSubmit={handleLogin} id="login-form">
                    <span className="text-red-400"> {error.msg}</span>
                     <h2 className="text-center w-full mt-10">Register</h2>
                     <div className="flex flex-col w-full">

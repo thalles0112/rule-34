@@ -41,30 +41,32 @@ function LoginForm() {
 
     if (response.ok) {
       router.push("/account"); // Redireciona após login
+      localStorage.setItem('logged','true')
     } else {
       setError("Invalid Credentials.");
     }
   }
 
   return (
-    <form ref={formRef} className="border mt-10 w-fit mx-auto p-10 gap-y-3 flex flex-col items-center" onSubmit={handleLogin}>
+    <form ref={formRef} className="mt-10 w-fit mx-auto p-10 gap-y-3 flex flex-col items-center" onSubmit={handleLogin}>
         <span className="text-sm text-green-300">{registrationSucess?'Registration success, now proceed to login':''}</span>
       <h2 className="text-center w-full mt-5">Login</h2>
       {error && <p className="text-red-500">{error}</p>}
       
       <div className="flex flex-col w-full">
         <label htmlFor="username">Username</label>
-        <input name="username" className="border-b p-1 w-full outline-none text-sm mt-2 bg-transparent text-gray-600 dark:text-gray-300"/>
+        <input name="username" className="border-b p-2 w-full outline-none text-sm mt-2 bg-transparent text-gray-600 dark:text-gray-300"/>
       </div>
       
       <div className="flex flex-col relative w-full">
         <label htmlFor="password">Password</label>
-        <input type={passwordVisible ? "text" : "password"} name="password" className="border-b p-1 outline-none text-sm mt-2 bg-transparent text-gray-600 dark:text-gray-300"/>
+        <input type={passwordVisible ? "text" : "password"} name="password" className="border-b p-2 outline-none text-sm mt-2 bg-transparent text-gray-600 dark:text-gray-300"/>
       
         <button className="absolute top-8 right-4" onClick={() => setPasswordVisible(!passwordVisible)} type="button">
           {passwordVisible ? <IoEyeOutline/> : <IoEyeOffOutline/>}
         </button>
       </div>
+      <Link className="text-sm text-left w-full" href={'/forgot-password'}>Forgot password?</Link>
       <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY || ''} onChange={() => {}} />
       
       <button className="active:bg-white dark:bg-slate-800 bg-neutral-200 active:bg-opacity-60 p-4 w-full" type="submit">

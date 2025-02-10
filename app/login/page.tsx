@@ -39,10 +39,10 @@ export default async function LoginPage() {
 
 
   return (
-    <div className="page-config" data-scroll-restoration-id="account">
+    <div className="page-config">
       <Header />
 
-      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
+      <main className="lg:px-24">
         <LoginForm />
       </main>
 

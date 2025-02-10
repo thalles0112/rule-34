@@ -120,3 +120,7 @@ body {
   line-height: 22px;
 }
 
+button:hover, a:hover{
+  color: var(--main-color);
+  transition-duration: 0.3s;
+}

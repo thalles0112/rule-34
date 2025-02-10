@@ -19,7 +19,7 @@ export async function generateMetadata(
   
  
   return {
-    title: `${slug} | NSFW Hub`,
+    title: `${slug.replace("%20", " ")} | NSFW Hub`,
     applicationName: 'NSFW Hub',
     other:{
       rating: 'RTA-5042-1996-1400-1577-RTA',

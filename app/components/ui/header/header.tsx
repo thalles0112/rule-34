@@ -14,6 +14,7 @@ export default function Header<HTMLElement>(props:headerProps) {
     const [searchParam, setSearchParam] = useState('')
     const router = useRouter()
     const headerRef = useRef(null)
+    const mobileInput = useRef<HTMLInputElement>(null)
     const [fixed, setFixed] = useState(false)
     const [lastScrollY, setLastScrollY] = useState(0)
     const [rowing, setRowing] = useState(false)
@@ -91,6 +92,14 @@ export default function Header<HTMLElement>(props:headerProps) {
     },[])
 
 
+    useEffect(()=>{
+        if(mobileSearchOpen){
+            
+            mobileInput.current && mobileInput.current.focus()
+            
+            
+        }
+    },[mobileSearchOpen])
 
 
 
@@ -98,7 +107,7 @@ export default function Header<HTMLElement>(props:headerProps) {
         <>
         <header
             
-            className={`w-full h-16 dark:bg-black bg-white lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
+            className={`w-full h-16  lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
             <Link href={'/'}>
                 <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo" />
@@ -131,7 +140,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
         <header
             ref={headerRef}
-            className={`${fixed?'visible':'hidden'} is-sticky  w-full h-16 dark:bg-black bg-white lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
+            className={`is-sticky  w-full h-16 lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
             <Link href={'/'}>
                 <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo" />
@@ -146,7 +155,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
             <div className="flex items-center justify-between gap-2">
                 <form onSubmit={(e) => handleMobileSearch(e)} id='mobile-search' className={`${mobileSearchOpen ? 'max-sm:border' : ''} w-8/12 ml-auto h-10 rounded-md flex overflow-hidden`}>
-                    <input value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full' : 'w-0 hidden'} sm:hidden text-sm text-gray-600`} placeholder="Search" />
+                    <input autoFocus={true} ref={mobileInput} value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full -translate-x-0 opacity-100' : 'w-0 translate-x-full opacity-0'} transition duration-100 sm:hidden text-sm text-gray-600`} placeholder="Search" />
                     <button id="search-button" aria-label="search" title="search" name="search" onClick={(e) => handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen ? 'border rounded-md' : 'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
                         <IoSearchOutline size={18} />
                     </button>
