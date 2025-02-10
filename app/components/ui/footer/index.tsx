@@ -7,18 +7,46 @@ import Link from 'next/link'
 export default function Footer(){
     const categories = [
         [
-            'About',
-            'Contact',
+            {
+                name:'About',
+                slug:'about'
+            },
+            {
+                name:'Contact',
+                slug:'contact'
+            },
+            {
+                name:'Support me',
+                slug:'support-me'
+            },
+        ],
+
+        [
+            {
+                name:'Advertise',
+                slug:'advertise'
+            },
+            {
+                name:'Terms of service',
+                slug:'terms-of-service'
+            }
         ],
         [
-            'Developers',
-            'Advertise',
-            'Terms of service',
-        ],
-        [
-            'Privacy Policy',
-            'Copyright Policy',
-            'Help Center'
+            {
+                name:'Privacy Policy',
+                slug:'privacy-policy',
+            },
+            {
+                name:'Copyright Policy',
+                slug:'copyright-policy',
+            },
+            {
+                name:'Help Center',
+                slug:'help-center'
+            }
+            
+            
+            
         ]
         
 
@@ -46,8 +74,8 @@ export default function Footer(){
                                         pages.map((page,idx)=>{
                                             return(
                                                 <li key={idx} className='text-sm font-bold mb-6 page-item'>
-                                                    <Link href={`/info/${page}`}>
-                                                        {page}
+                                                    <Link href={`/info/${page.slug}`}>
+                                                        {page.name}
                                                     </Link>
                                                 </li>
                                             )

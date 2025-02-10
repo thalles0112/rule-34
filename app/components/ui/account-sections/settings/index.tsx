@@ -1,25 +1,65 @@
 'use client'
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NameForm from "./profile-name"
 import CustomFiltersForm from "./custom-filters"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { author, user } from "@/app/types"
 
-export default function Settings(){
+export default function Settings({userData}:{userData:{user:user, author:author}}){
     const [settingName, setSettingName] = useState(false)
     const [settingFilters, setSettingFilters] = useState(false)
     const router = useRouter()
 
-    function changeProfilePicture(file:any){
 
+    async function editAuthorData(content:any){
+        content.append('author_id', userData.author.id)
+        try{
+          const resp = await fetch('/api/user/', {method: 'PUT', body: content})
+          if(resp.ok){
+            //window.location.reload()
+          }
+          
+        }
+        catch(e){
+          console.log(e)
+        }
+      }
+
+    async function editUserData(content:any){
+    content.append('author_id', userData.author.id)
+    try{
+        const resp = await fetch('/api/user/', {method: 'POST', body: content})
+        if(resp.ok){
+        window.location.reload()
+        }
+        
+    }
+    catch(e){
+        console.log(e)
+    }
     }
 
-    function changeProfileBanner(file:any){
+    function changeProfilePicture(event:any){
+        const file = event.target.files[0]
+        
+        const formdata = new FormData()
+        formdata.append('picture', file)
+        
+        editAuthorData(formdata)
         
     }
 
+    function changeProfileBanner(event:any){
+        const file = event.target.files[0]
+        const formdata = new FormData()
+        formdata.append('banner', file)
+     
+        editAuthorData(formdata)
+    }
+
     async function handleLogout(){
+        localStorage.setItem('logged', "false")
         await fetch("/api/logout", {method: 'POST'})
         router.push('/login')
     }
@@ -28,8 +68,8 @@ export default function Settings(){
         <section>
             
                
-            <NameForm closer={setSettingName} active={settingName}/>
-            <CustomFiltersForm closer={setSettingFilters} active={settingFilters}/>
+            <NameForm closer={setSettingName} onSubmit={editUserData} userData={userData} active={settingName}/>
+            <CustomFiltersForm closer={setSettingFilters} onSubmit={editAuthorData} userData={userData} active={settingFilters}/>
                
             
             <ul className="space-y-2">                            

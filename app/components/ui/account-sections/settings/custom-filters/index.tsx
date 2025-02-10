@@ -1,12 +1,19 @@
+import { author, user } from "@/app/types";
 import { produce } from "immer";
 import { FormEvent, useState } from "react"
 
 
-export default function CustomFiltersForm({active, closer}:{active:boolean, closer:(v:boolean)=>void}){
+export default function CustomFiltersForm({active, closer, onSubmit, userData}:{active:boolean, closer:(v:boolean)=>void, onSubmit:(content:FormData)=>void, userData:{user:user, author:author}}){
     const [tags, setTags] = useState<string[]>([])
     
     function submitHandler(e:FormEvent){
         e.preventDefault()
+        const formdata = new FormData()
+        formdata.append('block_tags', `${tags}`)
+        formdata.append('author_id', `${userData.author.id}`)
+        
+        onSubmit(formdata)
+
     }
 
     const removeTag=(idx:number)=>{
@@ -50,7 +57,7 @@ export default function CustomFiltersForm({active, closer}:{active:boolean, clos
                 <div className="flex gap-1 mt-1 flex-wrap">
                 {tags.map((tag,idx)=>{
                     return(
-                        <div onClick={()=>{removeTag(idx)}} className="px-2 py-1 border hover:bg-red-400 rounded">
+                        <div key={idx} onClick={()=>{removeTag(idx)}} className="px-2 py-1 border hover:bg-red-400 rounded">
                             {tag}
                         </div>
                     )

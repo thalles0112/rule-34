@@ -23,11 +23,18 @@ export type post = {
 
 
 export type author = {
-    name: string,
     id: number,
     url: string,
-    subscriptions: number,
-    picture: string
+    subscribers: user[],
+    picture: string,
+    banner: string,
+    user: number
+}
+
+export type user = {
+    id: number,
+    username: string,
+    email: string,
 }
 
 export type comment = {

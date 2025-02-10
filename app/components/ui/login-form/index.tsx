@@ -12,6 +12,7 @@ function LoginForm() {
   const [registrationSucess, setRegistrationSucess] = useState('')
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+  const [loading, setLoading] = useState(false)
 
   const msg = useSearchParams().get('msg')
 
@@ -26,6 +27,7 @@ function LoginForm() {
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
+    setLoading(true)
     setError("");
 
     if (!formRef.current) return;
@@ -44,7 +46,10 @@ function LoginForm() {
       localStorage.setItem('logged','true')
     } else {
       setError("Invalid Credentials.");
+      setLoading(false)
     }
+
+    
   }
 
   return (
@@ -70,7 +75,10 @@ function LoginForm() {
       <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY || ''} onChange={() => {}} />
       
       <button className="active:bg-white dark:bg-slate-800 bg-neutral-200 active:bg-opacity-60 p-4 w-full" type="submit">
-        Login
+        {loading
+        ?"Logging in..."
+        :<span>Login</span>
+        }
       </button>
       
       <Link href={'/register'} className="text-sm text-center block mt-4">Or register</Link>

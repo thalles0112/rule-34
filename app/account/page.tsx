@@ -2,7 +2,7 @@ import Header from "@/app/components/ui/header/header";
 import Footer from "../components/ui/footer";
 import LoginForm from "../components/ui/login-form";
 import Link from "next/link";
-import { author, post } from "../types";
+import { author, post, user } from "../types";
 import { IoPersonOutline } from "react-icons/io5";
 import type { Metadata } from "next";
 import AccountSections from "../components/ui/account-sections";
@@ -40,46 +40,70 @@ export default async function Account() {
   const accessToken = (await cookies()).get("access")?.value;
 
   // Verifica se o usuário está autenticado (se o token existe)
-  const isAuthenticated = !!accessToken;
+  let isAuthenticated = !!accessToken;
 
-  const author: author = {
-    picture: "/img/2b.webp",
-    name: "2B addicted",
-    subscriptions: 12000,
-    id: 1,
-    url: "",
-  };
-
-  function formatSubscribers() {
-    if (author.subscriptions < 1000) return author.subscriptions.toString();
-    if (author.subscriptions < 1000000)
-      return (author.subscriptions / 1000).toFixed(0) + "k";
-    return (author.subscriptions / 1000000)
-      .toFixed(1)
-      .replace(/\.0$/, "") + "mi";
-  }
+  
 
   const icon_size = 18;
-
   // Busca os posts da API
   const resp = await axios.get(
     `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=yorha_2b&limit=25&pid=1&json=1`
   );
+
+  
+  const access = (await cookies()).get('access')?.value
+
+  async function getUserData(){
+    try{
+      const response = await axios.get<{author:author, user:user}>(`${process.env.BACKEND_URL}/api/user`, {
+        headers: { Authorization: `Bearer ${access}` },
+      });
+    
+      const data = response.data
+      if(data.author){
+  
+        return data
+      }
+    }
+    catch(e){
+      isAuthenticated = false
+    }
+    
+    
+    
+  }
+
+  const userData:{'author':author, user:user} = await getUserData()
+  console.log(userData)
+  
+  function formatSubscribers() {
+    if(userData.author){
+      if (userData.author.subscribers.length < 1000) return userData.author.subscribers.length.toString();
+      if (userData.author.subscribers.length < 1000000)
+        return (userData.author.subscribers.length / 1000).toFixed(0) + "k";
+      return (userData.author.subscribers.length / 1000000)
+        .toFixed(1)
+        .replace(/\.0$/, "") + "mi";
+    }
+    
+  }
+
   const data: post[] = resp.data;
 
-
+  
   return (
-    <div className="page-config" data-scroll-restoration-id="account">
+    <div className="page-config">
       <Header />
 
-      <main className="lg:px-24  flex flex-col ">
+      <main className="lg:px-24 flex flex-col ">
         {isAuthenticated ? (
           // Exibir painel de conta se estiver autenticado
-          <div className="max-sm:px-4">
+          
+          <div className="max-sm:px-2">
             <section className="flex justify-center items-center h-40 relative">
               <img
                 className="max-h-full rounded-md overflow-hidden object-cover w-full"
-                src="/img/anime.webp"
+                src={userData.author.banner?userData.author.banner:"/img/anime.webp"}
               />
 
               <div
@@ -87,13 +111,13 @@ export default async function Account() {
                                     justify-center items-center overflow-hidden 
                                     bg-white shadow-md absolute z-10 left-10 -bottom-10"
               >
-                {author && author.picture ? (
+                {userData.author && userData.author.picture ? (
                   <img
                     className="min-h-full w-full object-cover"
                     width={40}
                     height={40}
-                    alt={author.name}
-                    src={author.picture}
+                    alt={userData.user.username}
+                    src={userData.author.picture}
                   />
                 ) : (
                   <IoPersonOutline size={icon_size} />
@@ -101,7 +125,7 @@ export default async function Account() {
               </div>
             </section>
             <div className="mt-10">
-              <span>{author.name}</span> -{" "}
+              <span>{userData.user&&userData.user.username?userData.user.username:''}</span> -{" "}
               <span>{formatSubscribers()} Subscribers</span>
             </div>
             <AccountSections posts={data} />

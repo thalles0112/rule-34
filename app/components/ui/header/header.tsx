@@ -17,7 +17,8 @@ export default function Header<HTMLElement>(props:headerProps) {
     const mobileInput = useRef<HTMLInputElement>(null)
     const [fixed, setFixed] = useState(false)
     const [lastScrollY, setLastScrollY] = useState(0)
-    const [rowing, setRowing] = useState(false)
+    
+    const [logged, setLogged] = useState(false)
 
     function handleSearch(e: FormEvent) {
         e.preventDefault()
@@ -42,16 +43,6 @@ export default function Header<HTMLElement>(props:headerProps) {
         const body = document.querySelector('.page-config')
         
         if(body){
-            
-            if(body.scrollTop < lastScrollY){
-                setRowing(true)
-            }
-            else{
-                setRowing(false)
-            }
-
-            
-
 
             if(body.scrollTop > 63){
                 setFixed(true)
@@ -88,6 +79,10 @@ export default function Header<HTMLElement>(props:headerProps) {
 
     useEffect(()=>{
         const cachedSearch = sessionStorage.getItem('q') || ''
+        const isLogged = localStorage.getItem('logged')
+        if(isLogged == "true"){
+            setLogged(true)
+        }
         setSearchParam(cachedSearch)
     },[])
 
@@ -109,31 +104,7 @@ export default function Header<HTMLElement>(props:headerProps) {
             
             className={`w-full h-16  lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
-            <Link href={'/'}>
-                <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo" />
-            </Link>
-
-            <form onSubmit={(e) => handleSearch(e)} id='desktop-search' className="border h-10 rounded-md flex overflow-hidden max-sm:hidden">
-                <input defaultValue={searchParam} onChange={e => { setSearchParam(e.target.value) }} className="outline-none border-none px-2 text-sm text-gray-600" placeholder="Search" />
-                <button id="search-button" aria-label="search" title="search" name="search" className="flex justify-center items-center border-l px-3 active:opacity-40">
-                    <IoSearchOutline />
-                </button>
-            </form>
-
-            <div className="flex items-center justify-between gap-2">
-                <form onSubmit={(e) => handleMobileSearch(e)} id='mobile-search' className={`${mobileSearchOpen ? 'max-sm:border' : ''} w-8/12 ml-auto h-10 rounded-md flex overflow-hidden`}>
-                    <input value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full' : 'w-0 hidden'} sm:hidden text-sm text-gray-600`} placeholder="Search" />
-                    <button id="search-button" aria-label="search" title="search" name="search" onClick={(e) => handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen ? 'border rounded-md' : 'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
-                        <IoSearchOutline size={18} />
-                    </button>
-                </form>
-
-                <Link href={'/account'}>
-                    <div className="flex justify-center items-center border rounded-md p-2 active:opacity-40 w-20">
-                        <span className="text-sm">Sign in</span>
-                    </div>
-                </Link>
-            </div>
+            
 
             
         </header>
@@ -143,7 +114,7 @@ export default function Header<HTMLElement>(props:headerProps) {
             className={`is-sticky  w-full h-16 lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
             <Link href={'/'}>
-                <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-20" alt="nsfwhub logo" />
+                <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-16" alt="nsfwhub logo" />
             </Link>
 
             <form onSubmit={(e) => handleSearch(e)} id='desktop-search' className="border h-10 rounded-md flex overflow-hidden max-sm:hidden">
@@ -155,7 +126,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
             <div className="flex items-center justify-between gap-2">
                 <form onSubmit={(e) => handleMobileSearch(e)} id='mobile-search' className={`${mobileSearchOpen ? 'max-sm:border' : ''} w-8/12 ml-auto h-10 rounded-md flex overflow-hidden`}>
-                    <input autoFocus={true} ref={mobileInput} value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full -translate-x-0 opacity-100' : 'w-0 translate-x-full opacity-0'} transition duration-100 sm:hidden text-sm text-gray-600`} placeholder="Search" />
+                    <input ref={mobileInput} value={searchParam} onChange={e => { setSearchParam(e.target.value) }} className={`outline-none border-none px-2 ${mobileSearchOpen ? 'max-sm:w-full -translate-x-0 opacity-100' : 'w-0 translate-x-full opacity-0'} transition duration-100 sm:hidden text-sm text-gray-600`} placeholder="Search" />
                     <button id="search-button" aria-label="search" title="search" name="search" onClick={(e) => handleMobileSearch(e)} className={`flex justify-center items-center ${!mobileSearchOpen ? 'border rounded-md' : 'border-l'}  py-1 px-2 active:opacity-40 sm:hidden md:hidden lg:hidden`}>
                         <IoSearchOutline size={18} />
                     </button>
@@ -163,7 +134,7 @@ export default function Header<HTMLElement>(props:headerProps) {
 
                 <Link href={'/account'}>
                     <div className="flex justify-center items-center border rounded-md p-2 active:opacity-40 w-20">
-                        <span className="text-sm">Sign in</span>
+                        <span className="text-sm">{logged?'Account':'Sign in'}</span>
                     </div>
                 </Link>
             </div>
