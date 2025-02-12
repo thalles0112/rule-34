@@ -81,6 +81,10 @@ body {
   height: calc(100% - (var(--header-height) + 56));
 }
 
+.h-screen--header{
+  height: calc(100vh - var(--header-height));
+}
+
 .section-bg{
   background-color: var(--background);
 }
@@ -135,4 +139,23 @@ body {
 button:hover, a:hover{
   color: var(--main-color);
   transition-duration: 0.3s;
+}
+
+.ad{
+  position: relative;
+}
+
+.text-shadow{
+  text-shadow: 2px 2px 2px #000;
+}
+
+.ad::before{
+  content: "ad";
+  position: absolute;
+  background-color: #b331b3;
+  top: 0;
+  padding: 2px;
+  border-radius: 6px;
+  right: 0;
+  z-index: 999999999;
 }

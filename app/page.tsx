@@ -8,8 +8,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import AdComponent from "./components/services/adloader";
 export const dynamic = 'force-dynamic'
-import './style.css'
-
 
 export const metadata: Metadata = {
   title: "Home | NSFW Hub: Free Porn Images & Videos - Porn, XXX, Rule34, NSFW ",
@@ -48,11 +46,11 @@ export default async function Home() {
 
   const categories: featuredCategory[] = [
     {
-      name: 'Juicy ass',
-      imageUrl: '/img/juicy-ass.webp',
+      name: 'Quickies',
+      imageUrl: '/img/video.gif',
       imageWidth: 397,
       imageHeight: 256,
-      url: '/search/?q=juicy_ass'
+      url: '/quickies'
     },
     {
       name: 'Cute',
@@ -96,10 +94,10 @@ export default async function Home() {
       <main data-scroll-restoration-id="home" className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
         
         <section className="flex justify-center items-center">
-          <h1 className="text-xl w-full p-2 font-bold text-center title">NSFW <span className="accent-color">HUB</span></h1>
+          <h1 className="text-xl w-full p-2 font-bold text-center title">Hot <span className="accent-color">Porn</span> Images in NSFWHUB</h1>
         </section>
 
-        <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
+        <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
           <AdComponent zoneId="1079708" type="billboard"/>
         </section>
 
@@ -112,38 +110,40 @@ export default async function Home() {
 
         <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
-          <ListPosts posts={posts} />
+          <ListPosts posts={posts.slice(0, 5)} />
+          <div className="w-fit mx-auto flex justify-center ad">
+            <AdComponent zoneId="1079708" type="billboard"/>
+          </div>
+          
+          <ListPosts posts={posts.slice(6)} />
         </section>
 
 
         <section id="site-description" className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm dark:text-gray-400 text-gray-500  max-sm:w-11/12 sm:w-10/12 mx-auto">
           <div className="" translate="no">
             <h1 className="title dark:text-white text-black mb-12">NSFWHUB.net the NSFW Artwork's home</h1>
-            <h2 className="subtitle">Welcome to the Future of NSFW Content</h2>
-            <p>NSFWHUB.net is the new leading platform for high-qualityNSFW artwork, 
-              featuring the most extensive and diverse collection of drawn and 
-              3D-rendered adult images on the internet. Whether you're an 
-              enthusiast of digital erotica, fantasy illustrations, or ultra-detailed 3D 
-              models, we provide a seamless and private browsing experience designed 
-              for true connoisseurs.
+            <h2 className="subtitle">Welcome to the Future of Rule34.xxx</h2>
+            <p>NSFWHUB.net is the new rule34.xxx but with better user interface, navigability, AI-based search engine 
+              and much more customization. NSFW Hub has the objective to show you what you really wanna see based in
+              what you really enjoy, not a bunch of random posts! With a upcoming feed ai your night fap will be much more
+              satisfying.
             </p>
 
-            <h2 className="subtitle">Unmatched Variety &amp; Diversity</h2>
+            <h2 className="subtitle">All the rule34.xxx content and more!</h2>
             <p>Find whatever you want to see in porn version here.
               If it exists, there will be porn of it. From anime-inspired illustrations 
               to hyper-realistic 3D renders, 
-              NSFWHUB.net brings together artists and creators from all over the world, 
-              celebrating the beauty of artistic expression in all its forms. We proudly 
-              support diverse kinks, niche preferences, and unconventional aesthetics, 
-              making sure everyone feels represented and excited.
+              NSFWHUB.net brings together artists and creators from rule34 and you are also
+              able to post your arts here. Exclusive NSFWHUB posts will have more priority to
+              be show to users! 
             </p>
             
             <h2 className="subtitle">The Largest NSFW Image Gallery on the Web</h2>
-            <p>With millions of high-resolution images, we house the most comprehensive 
-              collection of digital adult artwork. Our intuitive tagging system and smart search 
-              algorithms ensure that you can find precisely what you're looking for with minimal effort. 
-              Whether you crave cyberpunk fantasies, gothic aesthetics, or futuristic AI-generated 
-              erotica, it's all here at your fingertips.
+            <p>With more than 10 millions of high-resolution porn images and porn videos, 
+              featuring hentai, games, cartoon, 3D animations and whatever can be we offer
+              it all fast, secure and private. We use the most new and secure technologies
+              to give you the best porn site you will ever use to fap to. No distractions, 
+              no popups, no malware, just you and the porn you deserve to jerk off.
             </p>
               
             <h2 className="subtitle">Fast, Private & Easy to Use</h2>
@@ -170,27 +170,30 @@ export default async function Home() {
                 Join the Community & Start Browsing
               </p>
               
-                  <h2 className="subtitle">Join the Largest NSFW Art Community Today</h2>
+              <h2 className="subtitle">Why you should create an account at NSFHUB.net?</h2>
                   
-                  <p>Become part of a thriving community that values high-quality 
-                    NSFW artwork, respectful engagement, and artistic appreciation. 
-                    Whether you're here to explore, collect, or create, NSFWHUB.net 
-                    is the ultimate hub for digital adult content.
-                  </p>
-                  
-                  <p>Start browsing now and unlock a new dimension of NSFW creativity!</p><p>
+              <p>
+                Alhtough you do not need an account to navigate and find the best posts, there are
+                some benefits for you when you sign up: When the website is completely developed you will gain a seal
+                of first user that is unique, there will be an algorithm that filters the posts that you wanna see, you will
+                be able to filter manually tags that you do not wanna see, create folders and save your favorite posts, like
+                and favorite posts. We will never send emails unless it's needed, no spam, no boring marketing.
               </p>
+              
+              <p className="font-bold"><br/>Liked the project? Support it just clicking the ads! You don't even have to pay anything, just click and navigate a little bit on sponsor's website</p>
+                  
 
           </div>
         </section>
 
       <section id="mobile-ad" title="ad" className="fixed  items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
         
-        <div className="max-md:visible md:hidden">
+        <div className="max-md:visible md:hidden ad">
           <AdComponent zoneId="1080526" type="mobile"/>
         </div>
         
         <div className="flex md:visible max-md:hidden justify-center gap-4">
+          
           <AdComponent zoneId="1080537" type="banner"/>
           <AdComponent zoneId="1080526" type="mobile"/>
           <AdComponent zoneId="1080537" type="banner"/>

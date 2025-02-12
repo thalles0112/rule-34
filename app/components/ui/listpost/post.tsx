@@ -2,8 +2,9 @@ import { post } from "@/app/types";
 import Link from "next/link";
 import Image from "next/image";
 import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPersonOutline } from 'react-icons/io5'
-import CustomImage from "../Image";
 import { AiOutlineLike } from 'react-icons/ai'
+import CustomImage from "../Image";
+
 
 export default function Post({post}:{post:post}){
     const icon_size = 18
