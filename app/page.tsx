@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import AdComponent from "./components/services/adloader";
 export const dynamic = 'force-dynamic'
+import './style.css'
 
 
 export const metadata: Metadata = {
@@ -90,16 +91,16 @@ export default async function Home() {
 
 
   return (
-    <div className="page-config" style={{ overflowY: 'scroll' }} data-scroll-restoration-id="home">
+    <div className="page-config">
       <Header />
-      <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
+      <main data-scroll-restoration-id="home" className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
         
         <section className="flex justify-center items-center">
           <h1 className="text-xl w-full p-2 font-bold text-center title">NSFW <span className="accent-color">HUB</span></h1>
         </section>
 
         <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
-          <AdComponent type="billboard"/>
+          <AdComponent zoneId="1079708" type="billboard"/>
         </section>
 
 
@@ -183,7 +184,18 @@ export default async function Home() {
           </div>
         </section>
 
-
+      <section id="mobile-ad" title="ad" className="fixed  items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
+        
+        <div className="max-md:visible md:hidden">
+          <AdComponent zoneId="1080526" type="mobile"/>
+        </div>
+        
+        <div className="flex md:visible max-md:hidden justify-center gap-4">
+          <AdComponent zoneId="1080537" type="banner"/>
+          <AdComponent zoneId="1080526" type="mobile"/>
+          <AdComponent zoneId="1080537" type="banner"/>
+        </div>
+      </section>
       </main>
 
       <Footer />

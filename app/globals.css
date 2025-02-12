@@ -73,12 +73,12 @@ body {
 }
 
 .page-config{
-  height: calc(100%);
-  overflow-y: scroll;
+  height: calc(100% + 190px);
+  
 }
 
 .page-config--header{
-  height: calc(100% - var(--header-height));
+  height: calc(100% - (var(--header-height) + 56));
 }
 
 .section-bg{
@@ -110,10 +110,22 @@ body {
 
 .ad-banner#banner-billboard{
   min-width: 300px;
-  max-width: 100%;
-
-  
+  max-width: 100%;  
   min-height: 250px;
+}
+
+#mobile-ad iframe{
+  height: 56px !important;
+  width: fit-content !important;
+  display: flex !important;
+  object-fit: cover !important;
+}
+
+
+
+#mobile-ad{
+  background: var(--background);
+  z-index: 1000;
 }
 
 #site-description p{

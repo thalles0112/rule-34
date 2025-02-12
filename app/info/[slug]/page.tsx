@@ -96,7 +96,7 @@ export default async function InfoPage({params, searchParams}:PageProps){
                 <h1 className="my-10 text-center text-2xl">{slug.replace('-', ' ').replace('-', ' ')}</h1>
 
                 <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
-                <AdComponent type="billboard"/>
+                <AdComponent zoneId="1079708" type="billboard"/>
               </section>
 
               <section className="flex justify-center text-center">

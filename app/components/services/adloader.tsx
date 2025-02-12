@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 
-export default function AdComponent({ type }: { type: string }) {
+export default function AdComponent({ type, zoneId }: { type: string, zoneId:string }) {
   const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
 
@@ -38,6 +38,6 @@ export default function AdComponent({ type }: { type: string }) {
   if (!isClient) return null; // Evita renderizar no servidor
 
   return (
-    <ins id="1079708" data-width="908" data-height="258"></ins>
+    <ins id={zoneId} data-width="908" data-height="258"></ins>
   );
 }

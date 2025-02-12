@@ -111,10 +111,23 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
             
               <h1 className="title mt-8">Images tagged with {readyToTitle}</h1>
               <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
-                <AdComponent type="billboard"/>
+                <AdComponent zoneId="1079708" type="billboard"/>
 
               </section>
                 {initialPosts.length ? <ListPosts search={search} initialPosts={initialPosts} /> : <span>Nothing found</span>}
+
+                 <section id="mobile-ad" title="ad" className="fixed  items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
+                        
+                        <div className="max-md:visible md:hidden">
+                          <AdComponent zoneId="1080526" type="mobile"/>
+                        </div>
+                        
+                        <div className="flex md:visible max-md:hidden justify-center gap-4">
+                          <AdComponent zoneId="1080537" type="banner"/>
+                          <AdComponent zoneId="1080526" type="mobile"/>
+                          <AdComponent zoneId="1080537" type="banner"/>
+                        </div>
+                      </section>
             </main>
             
         </div>

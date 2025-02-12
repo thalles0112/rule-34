@@ -98,7 +98,7 @@ export default function PostInteractions({post}:{post:fullPost}){
 
 
     return(
-        <section className="lg:w-5/12 md:w-6/12 max-sm:w-full max-h-full mt-10">
+        <section className="lg:w-5/12 md:w-6/12 max-sm:w-full mb-16 max-h-full mt-10">
             <div className='flex items-center gap-2 mb-2'>
                 <div className='relative flex items-center'>
                     <button onClick={()=>{setShowFolders(!showFolders)}}>{!saved?<IoBookmarkOutline size={20}/>:<IoBookmark className='accent-color' size={20}/>} </button>
@@ -152,13 +152,13 @@ export default function PostInteractions({post}:{post:fullPost}){
                     </div>
                     
                     <div className="dark:bg-slate-800 border dark:border-slate-700 p-4 flex flex-col items-start gap-4 my-4 relative" id="banner-ad">
-                        <AdComponent type='leaderboard'/>
+                        <AdComponent zoneId='1079708' type='billboard'/>
                     </div>
                     
 
-                    <div className="dark:bg-slate-800 border h-96 dark:border-slate-700 p-4 flex flex-col items-start gap-4">
-                         <form onSubmit={(e)=>handleComment(e)} id='desktop-search' className="min-h-10 items-center flex max-sm:hidden">
-                            <div onChange={(e)=>{console.log(e)}} contentEditable={true} className="min-w-96 max-w-96 min-h-[40px] p-2 border-b focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden break-words">
+                    <div className="dark:bg-slate-800 border h-96 dark:border-slate-700 max-w-full p-4 flex flex-col items-start gap-4">
+                         <form onSubmit={(e)=>handleComment(e)} id='desktop-search' className="min-h-10 items-center w-full flex max-sm:hidden">
+                            <div onChange={(e)=>{console.log(e)}} contentEditable={true} className="w-full max-w-96 min-h-[40px] p-2 border-b focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden break-words">
 
                             </div>
 
