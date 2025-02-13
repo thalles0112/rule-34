@@ -118,7 +118,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
 
                  <section id="mobile-ad" title="ad" className="fixed  items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
                         
-                        <div className="max-md:visible md:hidden">
+                        <div className="max-md:visible md:hidden w-fit">
                           <AdComponent zoneId="1080526" type="mobile"/>
                         </div>
                         
