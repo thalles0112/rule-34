@@ -3,7 +3,7 @@ import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoPlayOutline } fr
 import { AiOutlineLike } from 'react-icons/ai'
 import './style.css'
 
-const Quickies = forwardRef(({ src, score, comment_count }:{src:string, score:number, comment_count:number}, ref) => {
+const Quickies = forwardRef(({ src, score, comment_count, id }:{src:string, score:number, comment_count:number, id:number}, ref) => {
   const videoRef = useRef<any>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const icon_size = 18
@@ -60,6 +60,10 @@ const Quickies = forwardRef(({ src, score, comment_count }:{src:string, score:nu
     };
   }, []);
 
+  function print(id:any){
+    console.log(id)
+  }
+
   return (
     <div ref={ref as any} className="flex quickie h-full justify-center items-center snap-start w-fit mx-auto bg-gray-950">
       <div className="relative max-sm:w-full w-full h-full">
@@ -89,7 +93,7 @@ const Quickies = forwardRef(({ src, score, comment_count }:{src:string, score:nu
 
         {/* Botões de interação */}
         <div className="absolute bg-black bg-opacity-30 p-2  rounded-md bottom-4 right-4 flex flex-col space-y-2">
-          <button className="text-white">
+          <button onClick={()=>{print(id)}} className="text-white">
             <AiOutlineLike size={icon_size}/>
             <span className='text-sm'>{score}</span>
           </button>

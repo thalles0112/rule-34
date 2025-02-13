@@ -111,9 +111,9 @@ export default async function Home() {
         <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
           <ListPosts posts={posts.slice(0, 5)} />
-          <div className="w-fit mx-auto flex justify-center ad">
+          <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
             <AdComponent zoneId="1079708" type="billboard"/>
-          </div>
+          </section>
           
           <ListPosts posts={posts.slice(6)} />
         </section>

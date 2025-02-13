@@ -38,9 +38,8 @@ export default function AdComponent({ type, zoneId }: { type: string, zoneId:str
   if (!isClient) return null; // Evita renderizar no servidor
 
   return (
-    <div className="ad">
-      <ins id={zoneId} data-width="908" data-height="258"></ins>
+    <div className="ad overflow-hidden">
+      <ins className="" id={zoneId} data-width="900" data-height="258"></ins>
     </div>
-    
   );
 }

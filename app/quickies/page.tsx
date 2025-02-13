@@ -105,9 +105,10 @@ export default function Home() {
             comment_count={reel.comment_count}
             score={reel.score}
             src={reel.file_url}
+            id={reel.id}
           />
         ))}
-        {loading && <p className="text-white text-center">Carregando...</p>}
+        {loading && <p className="text-white text-center">Loading...</p>}
       </main>
     </div>
   );
