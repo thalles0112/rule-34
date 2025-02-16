@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import AccountSections from "../components/ui/account-sections";
 import axios from "axios";
 import { cookies } from "next/headers"; // Import para acessar cookies server-side
+import Nav from '../components/ui/mobile-nav'
 
 export const metadata: Metadata = {
   title: "Account | NSFW Hub",
@@ -143,7 +144,7 @@ export default async function Account() {
           <LoginForm />
         )}
       </main>
-
+        <Nav/>
       <Footer />
     </div>
   );

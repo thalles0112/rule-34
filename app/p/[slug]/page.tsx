@@ -8,7 +8,7 @@ import type { Metadata, ResolvingMetadata } from 'next'
 import type { PageProps } from "@/.next/types/app/page";
 import CustomImage from "@/app/components/ui/Image";
 import AdComponent from "@/app/components/services/adloader";
-
+import Nav from '../../components/ui/mobile-nav'
  
 
 
@@ -165,20 +165,10 @@ export default async function PostPage({params, searchParams}: PageProps){
                 </section>
 
                 <PostInteractions post={post}/>
-                <section id="mobile-ad" title="ad" className="fixed overflow-x-hidden items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
-                        
-                        <div className="max-md:visible md:hidden">
-                          <AdComponent zoneId="1080526" type="mobile"/>
-                        </div>
-                        
-                        <div className="flex md:visible max-md:hidden ">
-                          <AdComponent zoneId="1080537" type="banner"/>
-                          <AdComponent zoneId="1080526" type="mobile"/>
-                          <AdComponent zoneId="1080537" type="banner"/>
-                        </div>
-                      </section>
 
               </main>
+
+              <Nav/>
              
         </div>
     )

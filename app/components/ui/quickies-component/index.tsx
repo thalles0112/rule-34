@@ -66,10 +66,10 @@ const Quickies = forwardRef(({ src, score, comment_count, id }:{src:string, scor
 
   return (
     <div ref={ref as any} className="flex quickie h-full justify-center items-center snap-start w-fit mx-auto bg-gray-950">
-      <div className="relative max-sm:w-full w-full h-full">
+      <div className="relative max-sm:w-full flex items-center w-full h-full">
         <video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
           autoPlay
           loop
           

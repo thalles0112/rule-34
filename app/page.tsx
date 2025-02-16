@@ -2,11 +2,12 @@ import axios from "axios";
 import FeaturedCategories from "./components/ui/featured-categories";
 import Footer from "./components/ui/footer";
 import Header from "./components/ui/header/header";
-import ListPosts from "./components/ui/listpost";
+import ListPosts from "./components/ui/listpost-infinite-scroll";
 import { featuredCategory, post } from "./types";
 import type { Metadata } from "next";
 import Script from "next/script";
 import AdComponent from "./components/services/adloader";
+import Nav from './components/ui/mobile-nav/index'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
@@ -97,25 +98,21 @@ export default async function Home() {
           <h1 className="text-xl w-full p-2 font-bold text-center title">Hot <span className="accent-color">Porn</span> Images in NSFWHUB</h1>
         </section>
 
-        <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
+        <section className="flex justify-center w-fit mx-auto items-center ad ad-banner" id='banner-billboard'>
           <AdComponent zoneId="1079708" type="billboard"/>
         </section>
 
 
-        <section className="flex flex-col p-4 gap-y-4 justify-center items-center section-bg">
-          <h2 className="subtitle"><span className="accent-color">Featured</span> tags</h2>
-          <FeaturedCategories categories={categories} />
-        </section>
-
+      
 
         <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
-          <ListPosts posts={posts.slice(0, 5)} />
+          <ListPosts search="anime" initialPosts={posts} />
           <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
             <AdComponent zoneId="1079708" type="billboard"/>
           </section>
           
-          <ListPosts posts={posts.slice(6)} />
+          
         </section>
 
 
@@ -186,20 +183,9 @@ export default async function Home() {
           </div>
         </section>
 
-      <section id="mobile-ad" title="ad" className="fixed  items-center bottom-0 left-0 w-full h-14 overflow-hidden flex justify-center">
-        
-        <div className="max-md:visible md:hidden ad">
-          <AdComponent zoneId="1080526" type="mobile"/>
-        </div>
-        
-        <div className="flex md:visible max-md:hidden justify-center gap-4">
-          
-          <AdComponent zoneId="1080537" type="banner"/>
-          <AdComponent zoneId="1080526" type="mobile"/>
-          <AdComponent zoneId="1080537" type="banner"/>
-        </div>
-      </section>
+      
       </main>
+      <Nav/>
 
       <Footer />
     </div>

@@ -4,8 +4,9 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import Script from "next/script"
 import React, { FormEvent, useState, useEffect, useRef , useCallback} from "react"
-import { IoSearchOutline } from "react-icons/io5"
+import { IoPlayOutline, IoSearchOutline } from "react-icons/io5"
 import './style.css'
+
 
 interface headerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -15,8 +16,7 @@ export default function Header<HTMLElement>(props:headerProps) {
     const router = useRouter()
     const headerRef = useRef(null)
     const mobileInput = useRef<HTMLInputElement>(null)
-    const [fixed, setFixed] = useState(false)
-    const [lastScrollY, setLastScrollY] = useState(0)
+
     
     const [logged, setLogged] = useState(false)
 
@@ -39,44 +39,7 @@ export default function Header<HTMLElement>(props:headerProps) {
         }
     }
 
-     // Sticky Menu Area
-     const onScroll = useCallback(() => {
-        const body = document.querySelector('.page-config')
-        
-        if(body){
 
-            if(body.scrollTop > 63){
-                setFixed(true)
-                
-            }
-            else{
-                setFixed(false)
-                
-            }
-
-
-            setTimeout(()=>setLastScrollY(body.scrollTop), 200)
-        }
-        
-        
-        
-        
-    }, []);
-  
-    useEffect(() => {
-      //add eventlistener to window
-        const body = document.querySelector('.page-config')
-        if(body){
-            body.addEventListener("scroll", onScroll);
-        }
-
-      
-      // remove event on unmount to prevent a memory leak with the cleanup
-      return () => {
-         body?.removeEventListener("scroll", onScroll);
-      }
-    }, []);
-  
 
     useEffect(()=>{
         const cachedSearch = sessionStorage.getItem('q') || ''
@@ -85,6 +48,22 @@ export default function Header<HTMLElement>(props:headerProps) {
             setLogged(true)
         }
         setSearchParam(cachedSearch)
+    },[])
+
+
+    useEffect(()=>{
+        window.addEventListener('searchBarOpen', ()=>{
+            if(mobileSearchOpen){
+                setMobileSearchOpen(false)
+            }
+            else{
+                setMobileSearchOpen(true)
+            }
+        })
+
+        return ()=>{
+            window.removeEventListener('searchBarOpen', ()=>{})
+        }
     },[])
 
 
@@ -114,9 +93,17 @@ export default function Header<HTMLElement>(props:headerProps) {
             ref={headerRef}
             className={`is-sticky  w-full h-16 lg:px-24 max-sm:px-4 sm:px-4 flex items-center justify-between`}
         >
-            <Link href={'/'}>
-                <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-16" alt="nsfwhub logo" />
-            </Link>
+            <div className="flex items-center gap-4">
+                <Link href={'/'}>
+                    <img src={'/img/sitelogo.png'} width={462} height={268} className="max-w-16" alt="nsfwhub logo" />
+                </Link>
+
+                <Link className="max-md:hidden" href={'/quickies'}>
+                <div className="flex items-center gap-1">
+                   <IoPlayOutline size={18}/> <span className="text-sm">Quickies</span>
+                </div>
+                </Link>
+            </div>
 
             <form onSubmit={(e) => handleSearch(e)} id='desktop-search' className="border h-10 rounded-md flex overflow-hidden max-sm:hidden">
                 <input defaultValue={searchParam} onChange={e => { setSearchParam(e.target.value) }} className="outline-none border-none px-2 text-sm text-gray-600" placeholder="Search" />

@@ -1,0 +1,11 @@
+nav{
+  background-color: #fff;
+  z-index: 99999999999;
+}
+
+@media (prefers-color-scheme: dark) {
+  nav{
+    
+    background-color: #151516;
+  }
+}

@@ -66,7 +66,7 @@ export default async function InfoPage({params, searchParams}:PageProps){
       </span>
 
       case 'about':
-        return <span>NSFW Hub does not host and does not own the content in this site, it only indexes. We use ads to mantain the site online.</span>
+        return <span>NSFW Hub does not host and does not own the content in this site, it only indexes posts from rule34.xxx. We use ads to mantain the site online.</span>
 
       case 'terms-of-service':
         return <p>NSFW Hub is completely free to use, you can create an account and delete it any time you want. Once you delete your account all your data will be lost too.</p>
@@ -90,12 +90,12 @@ export default async function InfoPage({params, searchParams}:PageProps){
   }
     
     return(
-        <div className="page-config" style={{overflowY:'scroll'}} >
-            <Header/>
-              <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
+            <div className="page-config">
+              <Header />
+              <main  className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
                 <h1 className="my-10 text-center text-2xl">{slug.replace('-', ' ').replace('-', ' ')}</h1>
 
-                <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
+                <section className="flex justify-center items-center ad ad-banner" id='banner-billboard'>
                 <AdComponent zoneId="1079708" type="billboard"/>
               </section>
 

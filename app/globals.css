@@ -66,19 +66,19 @@ button, img{
 
 body {
   color: var(--foreground);
-  height: 100vh;
+  min-height: 100vh;
   background-image: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   
 }
 
 .page-config{
-  height: calc(100% + 190px);
+  height: calc(100% + 64px);
   
 }
 
 .page-config--header{
-  height: calc(100% - (var(--header-height) + 56));
+  height: calc(100% - (var(--header-height)));
 }
 
 .h-screen--header{
@@ -160,6 +160,7 @@ button:hover, a:hover{
   content: "ad";
   position: absolute;
   background-color: #b331b3;
+  color: #fff;
   top: 0;
   padding: 2px;
   border-radius: 6px;

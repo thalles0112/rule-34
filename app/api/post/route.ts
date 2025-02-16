@@ -52,8 +52,8 @@ export async function POST(req: Request) {
         console.log(body)
 
         // Enviando a requisição corretamente
-        const response = await axios.put(
-            `${process.env.BACKEND_URL}/api/user`, 
+        const response = await axios.post(
+            `${process.env.BACKEND_URL}/api/post/create/`, 
             body, // O body vai aqui, como segundo argumento
             {
                 headers: {
