@@ -78,13 +78,13 @@ export async function POST(req: Request) {
     }
 }
 
-export async function GET(req:Request) {
+export async function GET() {
     
     const access = (await cookies()).get('access')
-
+    
     try{
         
-        const response = await axios.get(`${process.env.BACKEND_URL}/api/post`,  {headers:{"Authorization": `Bearer ${access?.value}`}})
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/post/get-my-posts`,  {headers:{"Authorization": `Bearer ${access?.value}`}})
 
         if(response.status==200){
             return NextResponse.json({success:true, data:response.data}, {status:200})

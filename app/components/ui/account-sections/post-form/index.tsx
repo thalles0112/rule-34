@@ -48,8 +48,8 @@ export default function PostForm() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("private", `${isPrivate}`);
+    formData.append("title", `${title}`);
+    formData.append("private", isPrivate?'True':'False');
     
 
     if (file_url) {
@@ -60,6 +60,7 @@ export default function PostForm() {
 
     // Envia as tags como uma lista de objetos
     formData.append(`tags`, `${tags}`);
+    formData.append('author', '4')
 
     try {
       const response = await fetch("/api/post", {
@@ -129,8 +130,9 @@ export default function PostForm() {
       <div className="space-y-4 flex md:w-4/12 flex-col">
         <input
           type="text"
-          placeholder="Título do Post"
+          placeholder="Title"
           value={title}
+          name="title"
           onChange={(e) => setTitle(e.target.value)}
           className="w-full p-2 border bg-transparent rounded outline-none"
         />

@@ -46,9 +46,17 @@ export default async function Account() {
 
   const icon_size = 18;
   // Busca os posts da API
-  const resp = await axios.get(
-    `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=yorha_2b&limit=25&pid=1&json=1`
-  );
+  let posts:any = []
+  try{
+    posts = await axios.get(`${process.env.BACKEND_URL}/api/post/get-my-posts`,  {headers:{"Authorization": `Bearer ${accessToken}`}})
+    posts = await posts.data
+  }
+  catch(e){
+    console.log(e)
+  }
+  
+
+  
 
   
   const access = (await cookies()).get('access')?.value
@@ -97,7 +105,6 @@ export default async function Account() {
     
   }
 
-  const data: post[] = resp.data;
 
   
   return (
@@ -137,7 +144,7 @@ export default async function Account() {
               <span>{userData && userData.user&&userData.user.username?userData.user.username:''}</span> -{" "}
               <span>{formatSubscribers()} Subscribers</span>
             </div>
-            <AccountSections posts={data} />
+            <AccountSections posts={posts} />
           </div>
         ) : (
           // Exibir formulário de login se não estiver autenticado
