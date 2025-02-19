@@ -113,7 +113,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
                 :<h1>Search on NSFHUB</h1>
               }
               
-              <section className="flex justify-center items-center ad-banner" id='banner-billboard'>
+              <section className="flex justify-center items-center ad-banner overflow-hidden" id='banner-billboard'>
                 <AdComponent zoneId="1079708" type="billboard"/>
 
               </section>

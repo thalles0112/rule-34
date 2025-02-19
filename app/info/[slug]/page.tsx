@@ -92,7 +92,7 @@ export default async function InfoPage({params, searchParams}:PageProps){
                 <h1 className="my-10 text-center text-2xl">{slug.replace('-', ' ').replace('-', ' ')}</h1>
 
                 <p>Support-me, click in the ad {'<3'}</p>
-                <section className="flex flex-col justify-center items-center ad ad-banner" id='banner-billboard'>
+                <section className="flex flex-col justify-center items-center ad ad-banner overflow-hidden" id='banner-billboard'>
                 <AdComponent zoneId="1079708" type="billboard"/>
                 </section>
 
