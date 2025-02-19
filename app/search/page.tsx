@@ -97,8 +97,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
     
 
     // Primeira requisição via SSR
-    const resp = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=1&json=1`);
-    const initialPosts = resp.data || [];
+    
 
     return (
         <div className="page-config" data-scroll-restoration-id="search">
@@ -118,7 +117,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
                 <AdComponent zoneId="1079708" type="billboard"/>
 
               </section>
-                {initialPosts.length ? <ListPosts search={search} initialPosts={initialPosts} /> : <span>Nothing found</span>}
+                <ListPosts search={search} />
 
                 
             </main>
