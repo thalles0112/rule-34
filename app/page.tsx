@@ -98,7 +98,7 @@ export default async function Home() {
           <h1 className="text-xl w-full p-2 font-bold text-center title">Hot <span className="accent-color">Porn</span> Images in NSFWHUB</h1>
         </section>
 
-        <section className="flex justify-center w-fit mx-auto items-center ad ad-banner overflow-hidden" id='banner-billboard'>
+        <section className="flex justify-center w-full  mx-auto items-center ad ad-banner overflow-hidden" id='banner-billboard'>
           <AdComponent zoneId="1079708" type="billboard"/>
         </section>
 
@@ -114,7 +114,7 @@ export default async function Home() {
           
         </section>
 
-        <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
+        <section className="flex justify-center w-full overflow-hidden mx-auto items-center ad-banner" id='banner-billboard'>
             <AdComponent zoneId="1079708" type="billboard"/>
         </section>
           
