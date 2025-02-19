@@ -69,11 +69,7 @@ const RegisterForm: React.FC<CustomFormProps> = ({ className, ...props }) => {
                         <button className="absolute top-10 accent-color right-4" onClick={()=>{setPasswordVisible(!passwordVisible)}} type="button">{passwordVisible?<IoEyeOutline color="purple"/>:<IoEyeOffOutline color="purple"/>}</button>
                     </div>
 
-                    <ReCAPTCHA 
-                            
-                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY || ''} 
-                            onChange={(token) => setRecaptchaToken(token || '')}
-                        />
+                   
                     
                     <div>
                         <button className="active:bg-white dark:bg-slate-800 bg-neutral-200 active:bg-opacity-60 p-4 w-full" type="submit">Register</button>

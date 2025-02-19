@@ -72,7 +72,7 @@ function LoginForm() {
         </button>
       </div>
       <Link className="text-sm text-left w-full" href={'/forgot-password'}>Forgot password?</Link>
-      <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY || ''} onChange={() => {}} />
+      
       
       <button className="active:bg-white dark:bg-slate-800 bg-neutral-200 active:bg-opacity-60 p-4 w-full" type="submit">
         {loading

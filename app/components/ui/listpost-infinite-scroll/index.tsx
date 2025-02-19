@@ -8,9 +8,9 @@ import { produce } from "immer";
 import { IoReloadOutline } from "react-icons/io5";
 import { post } from "@/app/types";
 
-export default function ListPosts({ search, initialPosts }: { search: string; initialPosts: any[] }) {
-    const [posts, setPosts] = useState<any[]>(initialPosts);
-    const [page, setPage] = useState(2);
+export default function ListPosts({ search }: { search: string}) {
+    const [posts, setPosts] = useState<any[]>([]);
+    const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
     
@@ -19,53 +19,81 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
     const loadingRef = useRef(false); // 🔥 Evita requisições duplicadas
 
     useEffect(()=>{
-        setPage(1)
-        setPosts([])
-        fetchOtherPosts()
-    },[search])
+        loadInitialPosts()
+    },[])
 
-    async function fetchOtherPosts(){
+    async function loadInitialPosts(){
         setLoading(true);
         loadingRef.current = true; // Evita múltiplas chamadas
-        try {
-            const resp = await axios.get(
-                `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${1}&json=1`
-            );
-            const newPosts = resp.data || [];
-           
-            setPosts(newPosts)
-            setPage(prev => prev + 1);
-        }
-        catch(e){
+        
+            const cached = sessionStorage.getItem(search)
+            
+            if(cached && page==1){
+                setPosts(JSON.parse(cached).posts)
+                console.log('carregados os posts em cache')
+                setPage(JSON.parse(cached).currentPage+1)
+            }
 
+            else{
+                try {
+                    const resp = await fetch(
+                        `/api/post/?search=${search}&page=${1}`
+                    );
+                    
+                    const resjson = await resp.json()
+                    const newPosts = resjson.data || [];
+                   
+                    setPosts(newPosts)
+           
+                    setPage(prev => prev + 1);
+                }
+                catch(e){
+        
+                }
+                finally{
+                    setLoading(false)
+                    loadingRef.current = false; // Libera a flag para nova requisição
+                }
+            
         }
-        finally{
-            setLoading(false)
-            loadingRef.current = false; // Libera a flag para nova requisição
-        }
+
+        setLoading(false)
+        loadingRef.current = false
+
+        
     }
 
-    async function fetchPosts() {
+    async function fetchMorePosts() {
         if (loading || !hasMore || loadingRef.current) return;
         
         setLoading(true);
         loadingRef.current = true; // Evita múltiplas chamadas
-
+    
         try {
-            const resp = await axios.get(
-                `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${page}&json=1`
+            const resp = await fetch(
+                `/api/post/?search=${search}&page=${page}`
             );
-            const newPosts = resp.data || [];
-
+            
+            const resjson = await resp.json();
+            let newPosts = resjson.data;
+            console.log(newPosts);
+    
+            // 10% de chance de adicionar um post fictício
+            if (Math.random() < 1) {
+                const randomId = `ad${Math.floor(Math.random() * 10000)}`;
+                const fakePost = { id: randomId, title: "Post Patrocinado", content: "Este é um anúncio fictício." };
+                newPosts = [...newPosts, fakePost];
+            }
+    
             if (newPosts.length === 0) {
                 setHasMore(false);
             } else {
+                const nextState = produce(posts, draft => {
+                    draft.push(...newPosts);
+                });
                 
-                const nextState = produce(posts, draft=>{
-                    draft.push(...newPosts)
-                })
-                
-                setPosts(nextState)
+                setPosts(nextState);
+                sessionStorage.setItem(search, JSON.stringify({ posts: nextState, currentPage: page }));
                 setPage(prev => prev + 1);
             }
         } catch (error) {
@@ -75,7 +103,10 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
             loadingRef.current = false; // Libera a flag para nova requisição
         }
     }
+    
 
+
+  
 
     // Pesquisa por outros posts quando o termo de pesquisa muda
  
@@ -90,34 +121,38 @@ export default function ListPosts({ search, initialPosts }: { search: string; in
 
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
-                fetchPosts();
+                fetchMorePosts();
             }
         });
 
         if (lastPostRef.current) observer.current.observe(lastPostRef.current);
-    }, [hasMore, loading]); // Dependendo dos posts, evita problema do ref não estar pronto
+    }, [hasMore, loading, posts]); // Dependendo dos posts, evita problema do ref não estar pronto
 
 
 
     
 
     return (
-        <ul className="post-grid">
+        <ul className="post-grid relative">
+            
             {posts.map((post, index) => (
                 <Post ad={post.id.toString().includes('ad')} key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
             ))}
 
 
-
-            
-            <div className="w-full h-8">
-              <div className="w-8 h-8 mx-auto">        
-                <svg className="animate-spin " width="32" height="32" viewBox="-25 -25 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" style={{transform:"rotate(-90deg)"}}>
-                  <circle r="90" cx="100" cy="100" fill="transparent" stroke="#e0e0e0" strokeWidth="16px"></circle>
-                  <circle r="90" cx="100" cy="100" stroke="#b331b3" strokeWidth="16px" strokeLinecap="round" strokeDashoffset="447px" fill="transparent" strokeDasharray="565.48px"></circle>
-                </svg>
+            {
+                hasMore
+                ?<div className="absolute -bottom-8 w-full h-8 ">
+                <div className="w-8 h-8 mx-auto">        
+                  <svg className="animate-spin " width="32" height="32" viewBox="-25 -25 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" style={{transform:"rotate(-90deg)"}}>
+                    <circle r="90" cx="100" cy="100" fill="transparent" stroke="#e0e0e0" strokeWidth="16px"></circle>
+                    <circle r="90" cx="100" cy="100" stroke="#b331b3" strokeWidth="16px" strokeLinecap="round" strokeDashoffset="447px" fill="transparent" strokeDasharray="565.48px"></circle>
+                  </svg>
+                </div>
               </div>
-            </div>
+              :<></>
+            }
+            
             
         </ul>
     );

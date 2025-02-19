@@ -8,17 +8,14 @@ export default function Footer(){
     const categories = [
         [
             {
-                name:'About',
-                slug:'about'
+                name:'Updates',
+                slug:'updates'
             },
             {
                 name:'Contact',
                 slug:'contact'
             },
-            {
-                name:'Support me',
-                slug:'support-me'
-            },
+    
         ],
 
         [

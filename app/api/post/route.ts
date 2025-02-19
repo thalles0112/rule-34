@@ -78,17 +78,20 @@ export async function POST(req: Request) {
     }
 }
 
-export async function GET() {
+export async function GET(req:Request) {
     
     const access = (await cookies()).get('access')
-    
+    const page = req.url.split('?')[1].split('&')[1].split('=')[1]
+    const search = req.url.split('?')[1].split('&')[0].split('=')[1]
+    console.log(req.url.split('?')[1].split('&')[0].split('=')[1])
+
     try{
         
-        const response = await axios.get(`${process.env.BACKEND_URL}/api/post/get-my-posts`,  {headers:{"Authorization": `Bearer ${access?.value}`}})
-
-        if(response.status==200){
-            return NextResponse.json({success:true, data:response.data}, {status:200})
-        }
+        const response = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${search}&limit=25&pid=${page}&json=1`)
+        
+        
+        return NextResponse.json({success:true, data:response.data}, {status:200})
+        
 
     }catch(e){
         return NextResponse.json({success:false, msg:e}, {status:401})

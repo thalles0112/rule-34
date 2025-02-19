@@ -107,13 +107,17 @@ export default async function Home() {
 
         <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
-          <ListPosts search="anime" initialPosts={posts} />
-          <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
-            <AdComponent zoneId="1079708" type="billboard"/>
-          </section>
+          
+          <ListPosts search="anime small_breasts"  />
+          
           
           
         </section>
+
+        <section className="flex justify-center w-fit mx-auto items-center ad-banner" id='banner-billboard'>
+            <AdComponent zoneId="1079708" type="billboard"/>
+        </section>
+          
 
 
         <section id="site-description" className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm dark:text-gray-400 text-gray-500  max-sm:w-11/12 sm:w-10/12 mx-auto">

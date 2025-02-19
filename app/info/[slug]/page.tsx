@@ -47,27 +47,23 @@ export default async function InfoPage({params, searchParams}:PageProps){
     
   function RenderComponent(){
     switch(slug) {  
-      case 'support-me':
-      return <span>Wanna support the development of this site? Click in the ads and navigate a little bit on the sponsor's site or
-        simply donate:
-        <ul className="bg-zinc-700 rounded-md flex gap-4 p-2 w-fit mx-auto mt-10">
-          <li className="bg-green-600 p-2 rounded-md">
-            <a href="https://buy.stripe.com/6oE14udXp9jueGY4gg">Donate $5.00</a>
-          </li>
+     
 
-          <li className="bg-green-600 p-2 rounded-md">
-            <a href="https://buy.stripe.com/aEU5kK3iL3Za42k6op">Donate $10.00</a>
-          </li>
-          
-          <li className="bg-green-600 p-2 rounded-md">
-            <a href="https://buy.stripe.com/bIYfZo5qT7bm7ew28a">Donate $15.00</a>
-          </li>
-        </ul>
-      </span>
+      case 'updates':
 
-      case 'about':
-        return <span>NSFW Hub does not host and does not own the content in this site, it only indexes posts from rule34.xxx. We use ads to mantain the site online.</span>
+        return <section>
+                <h2>Latest updates will be displayed here :D</h2>
+                <ul className="text-left font-mono">
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">19/02/2024</span> - Removed recaptcha from login form as it is not working yet</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">19/02/2024</span> - Better scroll restauration on home and search page</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">18/02/2024</span> - Publishing posts is now working, but they can't be visible to public yet</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">17/02/2024</span> - Removed popunder banner and added bottom navigator on mobile</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">13/02/2024</span> - Quickies added, now you can watch short videos just like in instagram's reels</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">11/02/2024</span> - You can change your picture and profile banner</li>
+                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">08/02/2024</span> - Login and registration working</li>
 
+                </ul>
+              </section> 
       case 'terms-of-service':
         return <p>NSFW Hub is completely free to use, you can create an account and delete it any time you want. Once you delete your account all your data will be lost too.</p>
       
@@ -95,15 +91,15 @@ export default async function InfoPage({params, searchParams}:PageProps){
               <main  className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
                 <h1 className="my-10 text-center text-2xl">{slug.replace('-', ' ').replace('-', ' ')}</h1>
 
-                <section className="flex justify-center items-center ad ad-banner" id='banner-billboard'>
+                <p>Support-me, click in the ad {'<3'}</p>
+                <section className="flex flex-col justify-center items-center ad ad-banner" id='banner-billboard'>
                 <AdComponent zoneId="1079708" type="billboard"/>
-              </section>
+                </section>
 
               <section className="flex justify-center text-center">
                 <RenderComponent/>
               </section>
 
-              
 
               </main>
               <Footer/>
