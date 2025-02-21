@@ -69,7 +69,7 @@ function Sections({posts}:{posts:post[]}) {
         ))}
       </div>
       <div className="mt-4">
-        {activeTab === "my_posts" && <ListPosts posts={posts} />}
+        {activeTab === "my_posts" && <ListPosts canDelete={true} posts={posts} />}
         {activeTab === "create" && <PostForm/>}
         {activeTab === "folders" && <Folders/>}
         {activeTab === "settings" && <Settings userData={storedUserData}/>}

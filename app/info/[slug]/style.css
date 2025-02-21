@@ -3,3 +3,17 @@
     width: 728px;
     height: 90px;
 }
+
+
+.updates ul li {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    padding: 14px 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+ul li .date{
+    font-size: 1.7em;
+    font-weight: 600;
+}

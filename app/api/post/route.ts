@@ -98,3 +98,29 @@ export async function GET(req:Request) {
     }
     
 }
+
+export async function DELETE(req:Request) {
+    
+    const access = (await cookies()).get('access')?.value
+    const post = req.url.split('?')[1].split('&')[0].split('=')[1]
+
+    console.log(access)
+    
+    try{
+
+    const response = await axios.delete(
+        `${process.env.BACKEND_URL}/api/post/delete?post=${post}`,
+        {
+            headers:{
+                "Authorization": `Bearer ${access}`
+            },
+          
+        }
+        
+    )
+        return NextResponse.json({success:true}, {status:200})
+    }catch{
+        return NextResponse.json({success:false}, {status:401})
+    }
+    
+}

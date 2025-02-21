@@ -51,16 +51,17 @@ export default async function InfoPage({params, searchParams}:PageProps){
 
       case 'updates':
 
-        return <section>
+        return <section className="updates">
                 <h2>Latest updates will be displayed here :D</h2>
-                <ul className="text-left font-mono">
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">19/02/2024</span> - Removed recaptcha from login form as it is not working yet</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">19/02/2024</span> - Better scroll restauration on home and search page</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">18/02/2024</span> - Publishing posts is now working, but they can't be visible to public yet</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">17/02/2024</span> - Removed popunder banner and added bottom navigator on mobile</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">13/02/2024</span> - Quickies added, now you can watch short videos just like in instagram's reels</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">11/02/2024</span> - You can change your picture and profile banner</li>
-                  <li className="my-2"><span className="p-1 bg-slate-200 rounded-md dark:bg-gray-800">08/02/2024</span> - Login and registration working</li>
+                <ul className="text-left flex flex-col gap-4">
+                <li className="my-2"><span className="date">21/02/2024</span> <p className="text">Posts can be deleted</p></li>
+                  <li className="my-2"><span className="date">19/02/2024</span> <p className="text">Removed recaptcha from login form as it is not working yet</p></li>
+                  <li className="my-2"><span className="date">19/02/2024</span> <p className="text">Better scroll restauration on home and search page</p></li>
+                  <li className="my-2"><span className="date">18/02/2024</span> <p className="text">Publishing posts is now working, but they can't be visible to public yet</p></li>
+                  <li className="my-2"><span className="date">17/02/2024</span> <p className="text">Removed popunder banner and added bottom navigator on mobile</p></li>
+                  <li className="my-2"><span className="date">13/02/2024</span> <p className="text">Quickies added, now you can watch short videos just like in instagram's reels</p></li>
+                  <li className="my-2"><span className="date">11/02/2024</span> <p className="text">You can change your picture and profile banner</p></li>
+                  <li className="my-2"><span className="date">08/02/2024</span> <p className="text">Login and registration working</p></li>
 
                 </ul>
               </section> 
@@ -91,10 +92,8 @@ export default async function InfoPage({params, searchParams}:PageProps){
               <main  className="lg:px-24 max-sm:px-4 flex flex-col gap-y-4">
                 <h1 className="my-10 text-center text-2xl">{slug.replace('-', ' ').replace('-', ' ')}</h1>
 
-                <p>Support-me, click in the ad {'<3'}</p>
-                <section className="flex flex-col justify-center max-w-full border items-center ad ad-banner overflow-hidden" id='banner-billboard'>
-                <AdComponent zoneId="1079708" type="billboard"/>
-                </section>
+                
+               
 
               <section className="flex justify-center text-center">
                 <RenderComponent/>

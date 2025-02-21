@@ -1,15 +1,29 @@
 import { post } from "@/app/types";
 import Link from "next/link";
 import Image from "next/image";
-import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPersonOutline } from 'react-icons/io5'
+import { IoChatboxOutline, IoHeartOutline, IoBookmarkOutline, IoThumbsUp, IoPersonOutline, IoTrashOutline } from 'react-icons/io5'
 import { AiOutlineLike } from 'react-icons/ai'
 import CustomImage from "../Image";
 
 
-export default function Post({post}:{post:post}){
+export default function Post({post, canDelete}:{post:post, canDelete:boolean}){
     const icon_size = 18
+    const handleDelete = async()=>{
+      const isConfirmed = window.confirm('Do you really wanna delete this post?')
+      if(isConfirmed){
+        const repsonse = await fetch(`/api/post?id=${post.id}`, {method:'DELETE'})
+        window.location.reload()
+      }
+ 
+
+    }
     return(
         <li className="post-item rounded-md overflow-hidden relative max-sm:w-full">
+          {
+            canDelete
+            ?<button onClick={handleDelete}><IoTrashOutline/></button>
+            :<></>
+          }
           <Link href={post.url || `/p/${post.id}`}>
             <article className="w-full h-full">
               <figure className="h-full w-full">
