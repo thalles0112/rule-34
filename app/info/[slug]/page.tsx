@@ -2,8 +2,6 @@ import { PageProps } from "@/.next/types/app/page";
 import Header from "@/app/components/ui/header/header";
 import './style.css'
 import type { Metadata, ResolvingMetadata } from 'next'
-import Script from "next/script";
-import AdComponent from "@/app/components/services/adloader";
 import Footer from "@/app/components/ui/footer";
 
 export async function generateMetadata(

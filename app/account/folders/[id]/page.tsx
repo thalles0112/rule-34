@@ -51,7 +51,7 @@ export default function FolderPage(){
                         <button key={idx} onClick={()=>{deleteFolder(idx)}} className={f.id==id?'':'hidden'}>Delete Folder</button>
                     )
                 })}</div>
-                <ListPosts posts={posts?posts.items:[]}/>
+                <ListPosts canDelete={false} posts={posts?posts.items:[]}/>
             </main>
             <Footer/>
         </div>

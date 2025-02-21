@@ -8,7 +8,7 @@ export default function FavouritesPage(){
             
             <main className="lg:px-24 max-sm:px-4 flex flex-col gap-y-8">
                 <h1 className="my-10 text-center">My Favourites</h1>
-                <ListPosts posts={[]}/>
+                <ListPosts canDelete={false} posts={[]}/>
             </main>
         </div>
     )
