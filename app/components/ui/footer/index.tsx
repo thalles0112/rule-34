@@ -2,7 +2,7 @@ import Image from 'next/image'
 import './style.css'
 import { IoLogoInstagram, IoLogoTwitch, IoLogoTwitter } from 'react-icons/io5'
 import Link from 'next/link'
-
+import { FaReddit } from "react-icons/fa6";
 
 export default function Footer(){
     const categories = [
@@ -57,6 +57,9 @@ export default function Footer(){
                     <div className='flex gap-2 justify-center'>
                     <a aria-label='Visit NSFW Hub Twitter (x.com)' href='https://x.com/nsfwhub_net' target='_blank'>
                         <IoLogoTwitter/>          
+                    </a>
+                    <a aria-label='Visit NSFW Hub subreddit' href='https://www.reddit.com/r/nsfwhub_net/s/Q6UqSivYjQ' target='_blank'>
+                        <FaReddit/>          
                     </a>
                     
                             
