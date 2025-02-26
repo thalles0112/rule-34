@@ -2,7 +2,7 @@
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import ListPosts, { ListPostsFlex } from "../listpost";
+import ListPosts from "../listpost";
 import PostForm from "./post-form";
 import FolderPage from "@/app/account/folders/[id]/page";
 import Folders from "./folders";
