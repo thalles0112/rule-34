@@ -84,7 +84,7 @@ export default async function Home() {
 
   ]
 
-
+  const tag = process.env.TAG || ''
 
 
 
@@ -108,7 +108,7 @@ export default async function Home() {
         <section className="flex flex-col gap-y-4 justify-center items-center section-bg p-4">
           <h2 className="subtitle" >For <span className="accent-color">you</span></h2>
           
-          <ListPosts search="anime small_breasts"  />
+          <ListPosts search={tag}  />
           
           
           

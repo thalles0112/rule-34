@@ -20,7 +20,7 @@ export default function ListPosts({ search }: { search: string}) {
 
     useEffect(()=>{
         loadInitialPosts()
-    },[])
+    },[search])
 
     async function loadInitialPosts(){
         setLoading(true);
