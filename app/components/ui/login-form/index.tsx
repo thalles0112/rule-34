@@ -56,7 +56,7 @@ function LoginForm() {
     <form ref={formRef} className="mt-10 w-fit mx-auto p-10 gap-y-3 flex flex-col items-center" onSubmit={handleLogin}>
         <span className="text-sm text-green-300">{registrationSucess?'Registration success, now proceed to login':''}</span>
       <h2 className="text-center w-full mt-5">Login</h2>
-      <h3 className="max-w-52">Hi, if you already had an account i'm very sorry, but the database got corrupted and I could not restore it, so i migrated to another one that is safer than previous one. Now it's 100% secure. You can just create another account and your folders will be there</h3>
+      
       {error && <p className="text-red-500">{error}</p>}
       
       <div className="flex flex-col w-full">
