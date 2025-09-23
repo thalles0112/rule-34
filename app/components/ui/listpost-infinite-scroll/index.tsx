@@ -136,7 +136,7 @@ export default function ListPosts({ search }: { search: string}) {
         <ul className="post-grid relative">
             
             {posts.map((post, index) => (
-                <Post ad={post.id.toString().includes('ad')} key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
+                <Post ad={false} key={index} post={post} ref={index === posts.length - 1 ? lastPostRef : null} />
             ))}
 
 
