@@ -150,11 +150,11 @@ export default function PostInteractions({post}:{post:fullPost}){
                         </p>
                         <button className='text-sm text-gray-400' onClick={()=>{setShowAllTags(!showAllTags)}}>{showAllTags?'show less':'show all'}</button>
                     </div>
-                    
+ {/**                   
                     <div className="dark:bg-slate-800 border dark:border-slate-700 p-4 flex flex-col items-start gap-4 my-4 relative overflow-hidden" id="banner-ad">
-                        {/** <AdComponent zoneId='1079708' type='billboard'/> **/}
+                         <AdComponent zoneId='1079708' type='billboard'/> 
                     </div>
-                    
+ **/}                   
 
                     <div className="dark:bg-slate-800 border h-96 dark:border-slate-700 max-w-full p-4 flex flex-col items-start gap-4">
                          <form onSubmit={(e)=>handleComment(e)} id='desktop-search' className="min-h-10 items-center w-full flex max-sm:hidden">

@@ -25,7 +25,7 @@ export async function generateMetadata(
   const slug = (await params).slug
  
   // fetch data
-  const post = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&id=${slug}&json=1`)
+  const post = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&id=${slug}&json=1&api_key=321207195b473b6ba36d87bd625e9eb93995b2fc8f04d8ef326bbb7512a6a06592ee97b59a0d932abff053ed19ad9a486a9ea56c77caca3ffc2d74ea1cc82342&user_id=4475901`)
  
   // optionally access and extend (rather than replace) parent metadata
   
@@ -118,10 +118,10 @@ export default async function PostPage({params, searchParams}: PageProps){
 
 
       async function getPost(){
-        let res = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&id=${slug}&json=1`)
+        let res = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&id=${slug}&json=1&api_key=321207195b473b6ba36d87bd625e9eb93995b2fc8f04d8ef326bbb7512a6a06592ee97b59a0d932abff053ed19ad9a486a9ea56c77caca3ffc2d74ea1cc82342&user_id=4475901`)
         if(res.data[0].comment_count > 0){
           
-          let comments = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=comment&q=index&post_id=${slug}&json=1`)
+          let comments = await axios.get(`https://api.rule34.xxx/index.php?page=dapi&s=comment&q=index&post_id=${slug}&json=1&api_key=321207195b473b6ba36d87bd625e9eb93995b2fc8f04d8ef326bbb7512a6a06592ee97b59a0d932abff053ed19ad9a486a9ea56c77caca3ffc2d74ea1cc82342&user_id=4475901`)
           let jsonResult = await parseXMLtoJSON(sanitizeXML(comments.data))
           return {...post, ...res.data[0], comments:jsonResult.comments.comment}
 

@@ -79,11 +79,7 @@ export default function ListPosts({ search }: { search: string}) {
             console.log(newPosts);
     
             // 10% de chance de adicionar um post fictício
-            if (Math.random() < 1) {
-                const randomId = `ad${Math.floor(Math.random() * 10000)}`;
-                const fakePost = { id: randomId, title: "Post Patrocinado", content: "Este é um anúncio fictício." };
-                newPosts = [...newPosts, fakePost];
-            }
+           
     
             if (newPosts.length === 0) {
                 setHasMore(false);

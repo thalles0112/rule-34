@@ -40,9 +40,6 @@ export const metadata: Metadata = {
 export default async function Home() {
 
 
-  let resp = await axios.get('https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=anime&limit=20&pid=1&json=1')
-  let posts = resp.data
-
 
 
   const categories: featuredCategory[] = [
@@ -97,11 +94,11 @@ export default async function Home() {
         <section className="flex justify-center items-center">
           <h1 className="text-xl w-full p-2 font-bold text-center title">Hot <span className="accent-color">Porn</span> Images in NSFWHUB</h1>
         </section>
-
+ {/**
         <section className="flex justify-center w-full  mx-auto items-center ad ad-banner overflow-hidden" id='banner-billboard'>
-          {/** <AdComponent zoneId="1079708" type="billboard"/>  **/}
+          <AdComponent zoneId="1079708" type="billboard"/>  
         </section>
-
+**/}
 
       
 
@@ -113,11 +110,11 @@ export default async function Home() {
           
           
         </section>
-
+{/**
         <section className="flex justify-center w-full overflow-hidden mx-auto items-center ad-banner" id='banner-billboard'>
-          {/** <AdComponent zoneId="1079708" type="billboard"/> **/}
+           <AdComponent zoneId="1079708" type="billboard"/> 
         </section>
-          
+**/}    
 
 
         <section id="site-description" className="flex flex-col justify-center items-center section-bg p-4 rounded-md text-sm dark:text-gray-400 text-gray-500  max-sm:w-11/12 sm:w-10/12 mx-auto">

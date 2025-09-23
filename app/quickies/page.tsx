@@ -19,7 +19,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=video&score:>100&limit=1&pid=${1}&json=1`
+        `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=video&score:>100&limit=1&pid=${1}&json=1&api_key=321207195b473b6ba36d87bd625e9eb93995b2fc8f04d8ef326bbb7512a6a06592ee97b59a0d932abff053ed19ad9a486a9ea56c77caca3ffc2d74ea1cc82342&user_id=4475901`
       );
       const newPosts = await response.json();
 
@@ -43,7 +43,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=video&score:>100&limit=1&pid=${pid==1?2:pid}&json=1`
+        `https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags=video&score:>100&limit=1&pid=${pid==1?2:pid}&json=1&api_key=321207195b473b6ba36d87bd625e9eb93995b2fc8f04d8ef326bbb7512a6a06592ee97b59a0d932abff053ed19ad9a486a9ea56c77caca3ffc2d74ea1cc82342&user_id=4475901`
       );
       const newPosts = await response.json();
 
@@ -101,7 +101,7 @@ export default function Home() {
         {posts.map((reel, index) => (
           <Quickies
             ref={index === posts.length - 1 ? lastPostRef : null}
-            key={reel.id}
+            key={index}
             comment_count={reel.comment_count}
             score={reel.score}
             src={reel.file_url}
