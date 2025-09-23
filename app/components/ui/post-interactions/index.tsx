@@ -152,7 +152,7 @@ export default function PostInteractions({post}:{post:fullPost}){
                     </div>
                     
                     <div className="dark:bg-slate-800 border dark:border-slate-700 p-4 flex flex-col items-start gap-4 my-4 relative overflow-hidden" id="banner-ad">
-                        <AdComponent zoneId='1079708' type='billboard'/>
+                        {/** <AdComponent zoneId='1079708' type='billboard'/> **/}
                     </div>
                     
 
