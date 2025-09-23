@@ -114,7 +114,7 @@ export default async function SearchPage({ params, searchParams }: PageProps ) {
               }
               
               <section className="flex justify-center items-center ad-banner overflow-hidden" id='banner-billboard'>
-                <AdComponent zoneId="1079708" type="billboard"/>
+                  {/** <AdComponent zoneId="1079708" type="billboard"/> **/}
 
               </section>
                 <ListPosts search={search} />
