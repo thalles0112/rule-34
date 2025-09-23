@@ -42,44 +42,7 @@ export default async function Home() {
 
 
 
-  const categories: featuredCategory[] = [
-    {
-      name: 'Quickies',
-      imageUrl: '/img/video.gif',
-      imageWidth: 397,
-      imageHeight: 256,
-      url: '/quickies'
-    },
-    {
-      name: 'Cute',
-      imageUrl: '/img/cute.webp',
-      imageWidth: 397,
-      imageHeight: 256,
-      url: '/search/?q=cute score:>100'
-    },
-    {
-      name: 'Anal',
-      imageUrl: '/img/anal.webp',
-      imageWidth: 397,
-      imageHeight: 256,
-      url: '/search/?q=anal'
-    },
-    {
-      name: '2B',
-      imageUrl: '/img/2b.webp',
-      imageWidth: 397,
-      imageHeight: 256,
-      url: '/search/?q=yorha_2b score:>100'
-    },
-    {
-      name: 'Anime',
-      imageUrl: '/img/anime.webp',
-      imageWidth: 397,
-      imageHeight: 256,
-      url: '/search/?q=anime'
-    }
 
-  ]
 
   const tag = process.env.TAG || ''
 
