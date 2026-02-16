@@ -148,11 +148,7 @@ export default function Header<HTMLElement>(props:headerProps) {
                     </button>
                 </form>
 
-                <Link href={'/account'}>
-                    <div className="flex justify-center items-center border rounded-md p-2 active:opacity-40 w-20">
-                        <span className="text-sm">{logged?'Account':'Sign in'}</span>
-                    </div>
-                </Link>
+                
             </div>
 
             <ul className={`suggestions absolute top-full mt-1 bg-white border rounded-md w-full left-0 ${searchSuggestions.length > 0 ? 'block' : 'hidden'}`}>
