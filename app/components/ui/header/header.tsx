@@ -8,13 +8,18 @@ import { IoPlayOutline, IoSearchOutline } from "react-icons/io5"
 import './style.css'
 import axios from "axios"
 
+type suggestion = {
+    value: string,
+    label: string
+}
+
 
 interface headerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function Header<HTMLElement>(props:headerProps) {
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
     const [searchParam, setSearchParam] = useState('')
-    const [searchSuggestions, setSearchSuggestions] = useState<string[]>([])
+    const [searchSuggestions, setSearchSuggestions] = useState<suggestion[]>([])
     const router = useRouter()
     const headerRef = useRef(null)
     const mobileInput = useRef<HTMLInputElement>(null)
@@ -155,7 +160,7 @@ export default function Header<HTMLElement>(props:headerProps) {
                     
                     {searchSuggestions.length > 0 && searchSuggestions.map((suggestion, index) => (
                         <li key={index} className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-                           <Link onClick={()=>{handleSuggestionClick(suggestion.value)}} href={`/search?q=${suggestion.value}`}>{suggestion.value}</Link>
+                           <Link onClick={()=>{handleSuggestionClick(suggestion.value)}} href={`/search?q=${suggestion.value}`}>{suggestion.value || ''}</Link>
                         </li>
                     ))}
                 </ul>
