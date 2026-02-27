@@ -67,17 +67,24 @@ const Quickies = forwardRef(({ src, score, comment_count, id }:{src:string, scor
   return (
     <div ref={ref as any} className="flex quickie h-full justify-center items-center snap-start w-fit mx-auto bg-gray-950">
       <div className="relative max-sm:w-full flex items-center w-full h-full">
+        
+          
+        
         <video
           ref={videoRef}
           className="w-full h-auto object-cover"
           autoPlay
           loop
-          
+          playsInline
+          webkit-playsinline="true"
           onClick={togglePlayPause}
+          muted
+          controlsList="nofullscreen"
         >
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        
 
         {/* Overlay para play/pause */}
         <div
