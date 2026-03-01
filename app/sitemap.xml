@@ -12,6 +12,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.nsfwhub.net/search?q=grace_ashcroft</loc>
+    <priority>0.8</priority>
+  </url>
+   <url>
+    <loc>http://nsfwhub.net/search?q=resident_evil_requiem</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nsfwhub.net/search?q=cosplay</loc>
     <priority>0.8</priority>
   </url>
